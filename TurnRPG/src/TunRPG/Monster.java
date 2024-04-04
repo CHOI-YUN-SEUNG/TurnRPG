@@ -1,10 +1,13 @@
 package TunRPG;
 
+import java.util.Random;
+
 public class Monster {
 	private int curhp;
 	private int maxhp;
 	private int power;
 	private String name;
+	private Random random = new Random();
 
 	public Monster() {
 	}
@@ -62,8 +65,10 @@ public class Monster {
 	}
 
 	public void attack(Player target) {
-		int test = 0;
-		if (test == 0) {// !회피설정 해줄것) {
+		int sample = random.nextInt(100);
+		int test = target.getDex() * 100; // 회피율 설정 어캐하지.....
+
+		if (sample > test ) {// !회피설정 해줄것) {
 			target.setHp((power - target.getDef()));
 			System.out.println("-------------------------------------------------");
 			System.out.println("[" + name + "] 가 " + "[" + target.getName() + "] 에게 " + (power - target.getDef())
@@ -72,7 +77,6 @@ public class Monster {
 				System.out.println("[" + target.getName() + "] 을 처치했습니다.");
 				target.setHp(0);
 			}
-
 		} else
 			System.out.println("[" + name + "] 의 공격을 " + "[" + target.getName() + "] 가 회피했다. ");
 
@@ -81,7 +85,15 @@ public class Monster {
 	public void skill() {// 스킬은 각각의 몹에게 개별 설정 확률로 발동하게 할것
 
 	}
+	
+	public void skill(Player target) {// 스킬은 각각의 몹에게 개별 설정 확률로 발동하게 할것
 
+	}
+
+	public void skill(int num, Player target) {// 스킬은 각각의 몹에게 개별 설정 확률로 발동하게 할것
+
+	}
+	
 	public void printData() {
 		System.out.println("[" + name + "] [" + curhp + "/" + maxhp + "] [" + power + "]");
 	}
