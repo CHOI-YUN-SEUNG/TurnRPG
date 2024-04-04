@@ -9,12 +9,12 @@ import java.io.IOException;
 public class FileManager {
 
 	
-	public void loadDate() {
+	public void loadData() {
 		
 	}
 	
 	
-	public void saveDate() {
+	public void saveData() {
 		
 	}
 	
