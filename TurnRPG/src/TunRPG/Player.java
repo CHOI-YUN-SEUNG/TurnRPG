@@ -27,10 +27,6 @@ public class Player extends Unit {
 		
 	}
 
-	void skill() {
-
-	}
-
 	public static int getPartySize() {
 		// TODO Auto-generated method stub
 		return 0;
@@ -69,6 +65,11 @@ public class Player extends Unit {
 	// 아이템 크기 반환 메서드
 	static public int getItemSize() {
 		return inven.itemList.size();
+	}
+
+	public void skill(Monster monster) {
+		
+		
 	}
 
 }
