@@ -8,4 +8,14 @@ import java.io.IOException;
 
 public class FileManager {
 
+	
+	public void loadDate() {
+		
+	}
+	
+	
+	public void saveDate() {
+		
+	}
+	
 }
