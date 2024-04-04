@@ -72,7 +72,7 @@ public class Monster {
 				System.out.println("[" + target.name + "] 을 처치했습니다.");
 				target.hp = 0;
 			}
-
+			
 		} else
 			System.out.println("[" + name + "] 의 공격을 " + "[" + target.name + "] 가 회피했다. ");
 
