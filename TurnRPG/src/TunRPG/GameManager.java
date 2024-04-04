@@ -11,7 +11,6 @@ public class GameManager {
 
 	private String curStage = "";
 	private Map<String, Stage> stageList = new HashMap<String, Stage>();
-	private int turn;
 
 	private GameManager() {
 
@@ -24,7 +23,6 @@ public class GameManager {
 		stageList.put("BONUS", new StageBonus());
 		stageList.put("SETTING", new StageSetting());
 		nextStage = "TITLE";
-		turn = 0;
 	}
 
 	public boolean changeStage() {
