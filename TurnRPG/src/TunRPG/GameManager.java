@@ -1,20 +1,53 @@
 package TunRPG;
 
 import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GameManager {
-
 	static GameManager instance = new GameManager();
 	static Scanner scanner = new Scanner(System.in);
+	static String nextStage = "";
+	
+	private String curStage = "";
+	private Map<String, Stage> stageList = new HashMap<String, Stage>();
 
-	public static String nextStage;
+	private GameManager() {
+		
+		
+	}
 
 	public void init() {
-
+		stageList.put("TITLE", new StageTitle());
+		stageList.put("LOBBY", new StageLobby());
+		stageList.put("BATTLE", new StageBattle());
+		stageList.put("BONUS", new StageBonus());
+		stageList.put("SETTING", new StageSetting());
+		nextStage = "TITLE";
 	}
 
 	public boolean changeStage() {
-		return true;
+		System.out.println("curStage : " + curStage);
+		System.out.println("nextStage : " + nextStage);
+		System.out.println("==========================");
+
+		if (curStage.equals(nextStage))
+			return true;
+
+		curStage = nextStage;
+		Stage stage = stageList.get(curStage);
+		stage.init();
+
+		boolean run = true;
+		while (run) {
+			run = stage.update();
+			if (run == false)
+				break;
+		}
+		if (nextStage.equals(""))
+			return false;
+		else
+			return true;
 	}
 
 	public static int inputNumber(String message) {
@@ -30,5 +63,4 @@ public class GameManager {
 		}
 		return number;
 	}
-
 }
