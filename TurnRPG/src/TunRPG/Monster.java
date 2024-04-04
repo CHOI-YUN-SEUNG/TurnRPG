@@ -64,17 +64,17 @@ public class Monster {
 	public void attack(Player target) {
 		int test = 0;
 		if (test == 0) {// !회피설정 해줄것) {
-			target.hp -= (power - target.def);
+			target.setHp((power - target.getDef()));
 			System.out.println("-------------------------------------------------");
-			System.out.println(
-					"[" + name + "] 가 " + "[" + target.name + "] 에게 " + (power - target.def) + "의 데미지를 입힙니다. ");
-			if (target.hp <= 0) {
-				System.out.println("[" + target.name + "] 을 처치했습니다.");
-				target.hp = 0;
+			System.out.println("[" + name + "] 가 " + "[" + target.getName() + "] 에게 " + (power - target.getDef())
+					+ "의 데미지를 입힙니다. ");
+			if (target.getHp() <= 0) {
+				System.out.println("[" + target.getName() + "] 을 처치했습니다.");
+				target.setHp(0);
 			}
-			
+
 		} else
-			System.out.println("[" + name + "] 의 공격을 " + "[" + target.name + "] 가 회피했다. ");
+			System.out.println("[" + name + "] 의 공격을 " + "[" + target.getName() + "] 가 회피했다. ");
 
 	}
 

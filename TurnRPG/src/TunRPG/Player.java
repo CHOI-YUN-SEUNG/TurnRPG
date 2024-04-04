@@ -10,7 +10,7 @@ public class Player extends Unit {
 	static Guild guild = new Guild();
 	static Inventory inven = new Inventory();
 
-	void init() {
+	public void init() {
 		money = 100000; // 소지금
 		guild.setGuild(); // 길드 설정
 	}
@@ -24,7 +24,7 @@ public class Player extends Unit {
 	}
 
 	public Player() {
-		
+
 	}
 
 	public static int getPartySize() {
@@ -42,9 +42,8 @@ public class Player extends Unit {
 		inven.inventoryMenu();
 	}
 
-	// 길드 리스트 반환 메서드
 	static public Vector<Player> getGuildList() {
-		return guild.guildList;
+		return guild.getGuildList();
 	}
 
 	// 아이템 리스트 반환 메서드
@@ -59,7 +58,7 @@ public class Player extends Unit {
 
 	// 길드 크기 반환 메서드
 	static public int getGuildSize() {
-		return guild.guildList.size();
+		return getGuildList().size();
 	}
 
 	// 아이템 크기 반환 메서드
@@ -68,8 +67,7 @@ public class Player extends Unit {
 	}
 
 	public void skill(Monster monster) {
-		
-		
+
 	}
 
 }

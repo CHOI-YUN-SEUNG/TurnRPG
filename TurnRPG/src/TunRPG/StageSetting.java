@@ -16,11 +16,11 @@ public class StageSetting extends Stage {
 				sel = GameManager.inputNumber("입력>> ");
 
 			if (sel == 1) {
-				unitManager.player.guildMenu();
+				unitManager.getPlayer().guildMenu();
 			} else if (sel == 2) {
 				shop.shopMng();
 			} else if (sel == 3) {
-				unitManager.player.inventoryMenu();
+				unitManager.getPlayer().inventoryMenu();
 			} else if (sel == 4) {
 				fileManager.saveData();
 			} else if (sel == 5) {

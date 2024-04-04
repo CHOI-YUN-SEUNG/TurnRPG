@@ -47,10 +47,10 @@ public class StageBattle extends Stage {
 
 	@Override
 	public void init() {
-		unitManager.mon_list.clear();
+		unitManager.getMon_list().clear();
 		unitManager.monster_rand_set(4);
-		unitManager.player = new Player();
-		monList = unitManager.mon_list;
+		unitManager.setPlayer(new Player());
+		monList = unitManager.getMon_list();
 		monDead = monList.size();
 		playerDead = Player.getGuildSize();
 
@@ -72,11 +72,11 @@ public class StageBattle extends Stage {
 	private void player_attack(int index) {
 		Player p = Player.getGuildUnit(index);
 
-		if (p.hp <= 0)
+		if (p.getHp() <= 0)
 			return;
 
 		System.out.println("======[메뉴 선택]=====");
-		System.out.println("[" + p.name + "] [1.어택] [2.스킬]");
+		System.out.println("[" + p.getName() + "] [1.어택] [2.스킬]");
 
 		int sel = GameManager.scanner.nextInt();
 		if (sel == 1) {
@@ -104,7 +104,7 @@ public class StageBattle extends Stage {
 			return;
 		while (true) {
 			int idx = rNum.nextInt(Player.getGuildSize());
-			if (Player.getGuildUnit(idx).hp > 0) {
+			if (Player.getGuildUnit(idx).getHp() > 0) {
 				m.attack(Player.getGuildUnit(idx));
 				break;
 			}
@@ -118,7 +118,7 @@ public class StageBattle extends Stage {
 	private void check_live() {
 		int num = 0;
 		for (int i = 0; i < Player.getGuildSize(); i++) {
-			if (Player.getGuildUnit(i).hp <= 0) {
+			if (Player.getGuildUnit(i).getHp() <= 0) {
 				num += 1;
 			}
 		}

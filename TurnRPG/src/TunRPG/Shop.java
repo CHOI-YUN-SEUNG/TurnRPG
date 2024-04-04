@@ -3,7 +3,7 @@ package TunRPG;
 import java.util.ArrayList;
 
 public class Shop {
-	ArrayList<Item> itemList = new ArrayList<>();
+	private ArrayList<Item> itemList = new ArrayList<>();
 
 	// 생성자
 	public Shop() {

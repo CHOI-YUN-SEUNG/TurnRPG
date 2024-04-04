@@ -43,24 +43,24 @@ public class Inventory {
 			// 입력한 아이템의 종류가 무기면
 			if (itemList.get(selEquip).kind == Item.WEAPON) {
 				// 길드원에게 무기가 없으면 아이템리스트에 추가 후 무기 착용
-				if (Player.getGuildUnit(selUnit).weapon != null) {
-					itemList.add(Player.getGuildUnit(selUnit).weapon);
+				if (Player.getGuildUnit(selUnit).getWeapon() != null) {
+					itemList.add(Player.getGuildUnit(selUnit).getWeapon());
 				}
-				Player.getGuildUnit(selUnit).weapon = itemList.get(selEquip);
+				Player.getGuildUnit(selUnit).setWeapon(itemList.get(selEquip)); 
 			} // 입력한 아이템의 종류가 갑옷이면
 			else if (itemList.get(selEquip).kind == Item.ARMOR) {
 				// 길드원에게 무기가 없으면 아이템리스트에 추가 후 무기 착용
-				if (Player.getGuildUnit(selUnit).armor != null) {
-					itemList.add(Player.getGuildUnit(selUnit).armor);
+				if (Player.getGuildUnit(selUnit).getArmor() != null) {
+					itemList.add(Player.getGuildUnit(selUnit).getArmor());
 				}
-				Player.getGuildUnit(selUnit).armor = itemList.get(selEquip);
+				Player.getGuildUnit(selUnit).setArmor(itemList.get(selEquip));
 			} // 입력한 아이템의 종류가 반지면
 			else if (itemList.get(selEquip).kind == Item.RING) {
 				// 길드원에게 무기가 없으면 아이템리스트에 추가 후 무기 착용
-				if (Player.getGuildUnit(selUnit).ring != null) {
-					itemList.add(Player.getGuildUnit(selUnit).ring);
+				if (Player.getGuildUnit(selUnit).getRing() != null) {
+					itemList.add(Player.getGuildUnit(selUnit).getArmor());
 				}
-				Player.getGuildUnit(selUnit).ring = itemList.get(selEquip);
+				Player.getGuildUnit(selUnit).setRing(itemList.get(selEquip));
 			}
 			// 착용된 아이템은 아이템 리스트에서 삭제
 			itemList.remove(selEquip);

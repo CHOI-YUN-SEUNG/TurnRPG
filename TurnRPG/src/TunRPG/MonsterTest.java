@@ -1,7 +1,7 @@
 package TunRPG;
 
 public class MonsterTest extends Monster {
-	MonsterTest() {
+	public MonsterTest() {
 		setName("테스트 몬스터");
 	}
 	
