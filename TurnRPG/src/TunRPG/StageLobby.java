@@ -1,6 +1,5 @@
 package TunRPG;
 
-
 public class StageLobby extends Stage {
 
 	@Override
@@ -8,7 +7,7 @@ public class StageLobby extends Stage {
 		System.out.println("=====[LOBBY]=====");
 		System.out.println("[1. 전투] [2. 설정] [3. 종료]");
 		int sel = -1;
-		while (0 > sel || sel > 2)
+		while (0 > sel || sel < 4)
 			sel = GameManager.inputNumber("입력>> ");
 
 		if (sel == 1) {
