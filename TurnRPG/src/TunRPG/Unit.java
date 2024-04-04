@@ -10,6 +10,8 @@ public abstract class Unit {
 	private int def; // 방어
 	private int exp; // 경험치
 	private int dex; // 회피
+	private int critical;
+	private int code;
 	private boolean party; // 파티 가입 여부
 	private Item weapon; // 무기
 	private Item armor; // 갑옷
