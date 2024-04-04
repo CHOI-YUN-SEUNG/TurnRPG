@@ -27,6 +27,7 @@ public class GameManager {
 	}
 
 	public boolean changeStage() {
+		System.out.println("==========================");
 		System.out.println("curStage : " + curStage);
 		System.out.println("nextStage : " + nextStage);
 		System.out.println("==========================");
