@@ -5,15 +5,14 @@ public class Monster {
 	private int maxhp;
 	private int power;
 	private String name;
-	private String state = "노말";
 
-	Monster() {
+	public Monster() {
 	}
 
 	public String getName() {
 		return name;
 	}
-	
+
 	public int getCurhp() {
 		return curhp;
 	}
@@ -21,35 +20,27 @@ public class Monster {
 	public int getMaxhp() {
 		return maxhp;
 	}
-	
+
 	public int getPower() {
 		return power;
 	}
-	
-	public String getState() {
-		return state;
-	}
-	
+
 	public void setCurhp(int curhp) {
 		this.curhp = curhp;
 	}
-	
+
 	public void setMaxhp(int maxhp) {
 		this.maxhp = maxhp;
 	}
-	
+
 	public void setPower(int power) {
 		this.power = power;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public void setState(String state) {
-		this.state = state;
-	}
-	
+
 	public Monster(String name, int max, int pw) {
 		this.name = name;
 		this.curhp = max;
@@ -70,18 +61,24 @@ public class Monster {
 		this.power = pw;
 	}
 
-	// 몬스터가 플레이어에게 공격하는 메서드
-	public void attack(Unit target) {
-		target.hp -= (power - target.def);
-		System.out.println("-------------------------------------------------");
-		System.out.println("[" + name + "] 가 " + "[" + target.name + "] 에게 " + (power - target.def) + "의 데미지를 입힙니다. ");
-		if (target.hp <= 0) {
-			System.out.println("[" + target.name + "] 을 처치했습니다.");
-			target.hp = 0;
-		}
+	public void attack(Player target) {
+		int test = 0;
+		if (test == 0) {// !회피설정 해줄것) {
+			target.hp -= (power - target.def);
+			System.out.println("-------------------------------------------------");
+			System.out.println(
+					"[" + name + "] 가 " + "[" + target.name + "] 에게 " + (power - target.def) + "의 데미지를 입힙니다. ");
+			if (target.hp <= 0) {
+				System.out.println("[" + target.name + "] 을 처치했습니다.");
+				target.hp = 0;
+			}
+
+		} else
+			System.out.println("[" + name + "] 의 공격을 " + "[" + target.name + "] 가 회피했다. ");
+
 	}
 
-	public void skill() {
+	public void skill() {// 스킬은 각각의 몹에게 개별 설정 확률로 발동하게 할것
 
 	}
 
