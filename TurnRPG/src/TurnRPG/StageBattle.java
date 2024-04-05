@@ -42,7 +42,16 @@ public class StageBattle extends Stage {
 
 			check_live();
 			if (playerDead <= 0) {
-				System.out.println("파티가 전멸했다");
+				System.out.println("탐사가 불가능하다. 강해져서 돌아오자");
+				while (true) {
+					if (p_index < Player.getPartySize()) {
+						int now = Player.getGuildUnit(p_index).getAtt(); //디버프를 줘야하는데 뭐로하지
+						Player.getGuildUnit(p_index).setAtt(now - 1000);
+						Player.getGuildUnit(p_index).setHp(Player.getGuildUnit(p_index).getMaxHp());//풀피로 힐해주고
+						p_index++;
+					} else
+						break;
+				}
 				break;
 			}
 
@@ -51,7 +60,7 @@ public class StageBattle extends Stage {
 				System.out.println("던전 클리어~");
 				while (true) {
 					if (p_index < Player.getPartySize()) {
-						int now = Player.getGuildUnit(p_index).getAtt();
+						int now = Player.getGuildUnit(p_index).getAtt(); // 경험치로 바꿔야함
 						Player.getGuildUnit(p_index).setAtt(now + 1000);
 						p_index++;
 					} else

@@ -51,7 +51,7 @@ public class UnitManager {
 				Object obj = clazz.getDeclaredConstructor().newInstance();
 				Monster temp = (Monster) obj;
 				int hp = r.nextInt(100) + 100;
-				int pw = r.nextInt(10) + 10;
+				int pw = r.nextInt(10) + 100000;
 				temp.init(hp, pw);
 				mon_list.add(temp);
 			} catch (Exception e) {
