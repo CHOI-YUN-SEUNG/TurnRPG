@@ -36,13 +36,17 @@ public class Player extends Unit {
 		inven.inventoryMenu();
 	}
 
-	static public Vector<Player> getPartyList() {
+	static public Vector<Player> getGuildList() {
+		return guild.getGuildList();
+	}
+
+	static public Player[] getPartyList() {
 		return guild.getPartyList();
 	}
 
 	// 아이템 리스트 반환 메서드
 	static public ArrayList<Item> getItemList() {
-		return inven.itemList;
+		return inven.getItemList();
 	}
 
 	// 길드원 반환 메서드
@@ -52,11 +56,13 @@ public class Player extends Unit {
 
 	// 길드 크기 반환 메서드
 	static public int getPartySize() {
-		return getPartyList().size();
+		return getPartySize();
 	}
 
 	// 아이템 크기 반환 메서드
 	static public int getItemSize() {
-		return inven.itemList.size();
+		return inven.getItemList().size();
 	}
+
+
 }
