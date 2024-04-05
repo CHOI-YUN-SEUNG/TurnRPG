@@ -4,10 +4,62 @@ import java.util.ArrayList;
 
 public class Shop {
 	private ArrayList<Item> itemList = new ArrayList<>();
-	
+
 	public Shop() {
 		Item temp = new Item();
-		temp.setWeapon(Item.WEAPON, 1,"나무검", 3, 1000);
+		temp.setWeapon(Item.WEAPON, 1, "테스트검", 1000, 100, 1000);
+		itemList.add(temp);
+
+		temp = new Item();
+		temp.setWeapon(Item.WEAPON, 1, "테스트검2", 1000, 100, 1000);
+		itemList.add(temp);
+
+		temp = new Item();
+		temp.setProtection(Item.PROTECTION, Item.GLOVE, "테스트헬멧", 100, 1000);
+		itemList.add(temp);
+
+		temp = new Item();
+		temp.setProtection(Item.PROTECTION, Item.GLOVE, "테스트헬멧", 100, 1000);
+		itemList.add(temp);
+
+		temp = new Item();
+		temp.setProtection(Item.PROTECTION, Item.SHOULDER, "테스트견갑", 100, 1000);
+		itemList.add(temp);
+
+		temp = new Item();
+		temp.setProtection(Item.PROTECTION, Item.SHOULDER, "테스트견갑2", 100, 1000);
+		itemList.add(temp);
+
+		temp = new Item();
+		temp.setProtection(Item.PROTECTION, Item.ARMOR, "테스트상의", 100, 1000);
+		itemList.add(temp);
+
+		temp = new Item();
+		temp.setProtection(Item.PROTECTION, Item.ARMOR, "테스트상의2", 100, 1000);
+		itemList.add(temp);
+
+		temp = new Item();
+		temp.setProtection(Item.PROTECTION, Item.BOTTOMS, "테스트하의", 100, 1000);
+		itemList.add(temp);
+
+		temp = new Item();
+		temp.setProtection(Item.PROTECTION, Item.BOTTOMS, "테스트하의2", 100, 1000);
+		itemList.add(temp);
+
+		temp = new Item();
+		temp.setProtection(Item.PROTECTION, Item.GLOVE, "테스트장갑", 100, 1000);
+		itemList.add(temp);
+
+		temp = new Item();
+		temp.setProtection(Item.PROTECTION, Item.GLOVE, "테스트장갑2", 100, 1000);
+		itemList.add(temp);
+
+		temp = new Item();
+		temp.setRing(Item.RING, "테스트반지", 100, 100, 100, 100, 100, 1000);
+		itemList.add(temp);
+
+		temp = new Item();
+		temp.setRing(Item.RING, "테스트반지2", 100, 100, 100, 100, 100, 1000);
 		itemList.add(temp);
 
 	}
@@ -23,7 +75,7 @@ public class Shop {
 			while (true) {
 				if (selKind == Item.WEAPON) {
 					System.out.println("=========== [무기] ============");
-				} else if (selKind == Item.ARMOR) {
+				} else if (selKind == Item.PROTECTION) {
 					System.out.println("========== [방어구] ===========");
 				} else if (selKind == Item.RING) {
 					System.out.println("=========== [반지] ============");
@@ -64,7 +116,7 @@ public class Shop {
 				continue; // 종류가 다르면 넘어가기
 			System.out.print("[" + (count + 1) + "번] ");
 			System.out.print("[이름 : " + itemList.get(i).getName() + "] ");
-			//System.out.print("[능력 : " + itemList.get(i).getPower() + "] ");
+			// System.out.print("[능력 : " + itemList.get(i).getPower() + "] ");
 			System.out.print("[가격 : " + itemList.get(i).getPrice() + "] ");
 			System.out.println();
 			count += 1;

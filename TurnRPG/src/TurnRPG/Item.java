@@ -13,6 +13,7 @@ public class Item {
 	private int kind;
 	private String name;
 	private int code;
+	private int value;
 	private int att;
 	private int cri;
 	private int def;
@@ -92,15 +93,31 @@ public class Item {
 		this.price = price;
 	}
 
-	public void setWeapon(int weapon2, int i, String string, int j, int k) {
-
+	public void setWeapon(int kind, int code, String name, int att, int cri, int price) {
+		this.kind = kind;
+		this.code = code;
+		this.name = name;
+		this.att = att;
+		this.cri = cri;
+		this.price = price;
 	}
-	
-	public void setProtection() {
 
+	public void setProtection(int kind, int code, String name, int value, int price) {
+		this.kind = kind;
+		this.code = code;
+		this.name = name;
+		this.value = value;
+		this.price = price;
 	}
-	
-	public void setRing() {
 
+	public void setRing(int kind, String name, int att, int cri, int def, int hp, int dex, int price) {
+		this.kind = kind;
+		this.name = name;
+		this.att = att;
+		this.cri = cri;
+		this.def = def;
+		this.hp = hp;
+		this.dex = dex;
+		this.price = price;
 	}
 }

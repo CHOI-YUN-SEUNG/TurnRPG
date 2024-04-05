@@ -9,7 +9,7 @@ public class StageSetting extends Stage {
 	public boolean update() {
 		while (true) {
 			System.out.println("=============== [메인메뉴] ================");
-			System.out.println("[1.길드관리]\t\t[2.상점]\t\t[3.인벤토리]");
+			System.out.println("[1.길드관리]\t[2.상점]\t\t[3.인벤토리]");
 			System.out.println("[4.저장]\t\t[5.로드]\t\t[0.종료]");
 			int sel = -1;
 			while (!(sel >= 0 && sel < 6))
