@@ -74,7 +74,7 @@ public class Player extends Unit {
 
 	}
 
-	public void skill(int num, Monster monster) {
+	public void skill(int num, Monster monster,int count) {
 
 	}
 }

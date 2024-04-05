@@ -16,12 +16,13 @@ public class StageBattle extends Stage {
 		int p_index = 0;
 		int m_index = 0;
 		boolean turn = true;
+		int count = 0;
 
 		while (run) {
 			if (turn) {
 				print_character();
 				if (p_index < Player.getPartySize()) {
-					player_attack(p_index);
+					player_attack(p_index, count);
 					p_index += 1;
 				} else {
 					turn = !turn;
@@ -36,7 +37,7 @@ public class StageBattle extends Stage {
 					m_index = 0;
 				}
 			}
-
+			count++;
 			check_live();
 			if (monDead <= 0 || playerDead <= 0)
 				break;
@@ -69,7 +70,7 @@ public class StageBattle extends Stage {
 		}
 	}
 
-	private void player_attack(int index) {
+	private void player_attack(int index, int count) {
 		Player p = Player.getGuildUnit(index);
 
 		if (p.getHp() <= 0)
@@ -91,7 +92,8 @@ public class StageBattle extends Stage {
 			while (true) {
 				int idx = rNum.nextInt(monList.size());
 				if (monList.get(idx).getCurhp() > 0) {
-					p.skill(monList.get(idx));
+					int skillsel = GameManager.inputIndex("사용할 스킬을 선택하십시오.");
+					p.skill(skillsel,monList.get(idx),count);
 					break;
 				}
 			}
@@ -114,7 +116,7 @@ public class StageBattle extends Stage {
 	public int getPlayerDead() {
 		return playerDead;
 	}
-	
+
 	private void check_live() {
 		int num = 0;
 		for (int i = 0; i < Player.getGuildSize(); i++) {
