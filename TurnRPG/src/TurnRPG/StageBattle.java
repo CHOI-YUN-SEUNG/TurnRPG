@@ -87,7 +87,7 @@ public class StageBattle extends Stage {
 		System.out.println(playerDead + " : " + monDead);
 		System.out.println("======[PLAYER]======");
 		for (int i = 0; i < Player.getPartySize(); i++) {
-			Player.getPartyList().get(i).printData();
+			Player.getGuildList().get(i).printData();
 		}
 		System.out.println("======[MONSTER]======");
 		for (int i = 0; i < monList.size(); i++) {
@@ -96,7 +96,7 @@ public class StageBattle extends Stage {
 	}
 
 	private void player_attack(int index, int count) {
-		Player p = Player.getPartyList().get(index);
+		Player p = Player.getGuildList().get(index);
 
 		if (p.getHp() <= 0)
 			return;
