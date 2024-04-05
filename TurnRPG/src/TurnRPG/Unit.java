@@ -1,4 +1,4 @@
-package TunRPG;
+package TurnRPG;
 
 //플레이어가 상속받을 추상클래스
 public abstract class Unit {

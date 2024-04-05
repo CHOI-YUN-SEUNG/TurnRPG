@@ -1,4 +1,4 @@
-package TunRPG;
+package TurnRPG;
 
 public class MonsterTest extends Monster {
 	public MonsterTest() {

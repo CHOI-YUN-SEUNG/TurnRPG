@@ -1,4 +1,4 @@
-package TunRPG;
+package TurnRPG;
 
 import java.util.Random;
 

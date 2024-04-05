@@ -1,4 +1,4 @@
-package TunRPG;
+package TurnRPG;
 
 import java.util.ArrayList;
 import java.util.Vector;

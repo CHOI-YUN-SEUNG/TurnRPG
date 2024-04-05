@@ -1,4 +1,4 @@
-package TunRPG;
+package TurnRPG;
 
 public abstract class Stage {
 	public abstract boolean update();

@@ -1,4 +1,4 @@
-package TunRPG;
+package TurnRPG;
 
 //5. 아이템 클래스 (Item)
 //변수 : 무기, 갑옷, 장신구 (static final), 종류, 이름, 능력, 가격

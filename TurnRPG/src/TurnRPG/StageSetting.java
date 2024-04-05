@@ -1,4 +1,4 @@
-package TunRPG;
+package TurnRPG;
 
 public class StageSetting extends Stage {
 	private UnitManager unitManager = null;
