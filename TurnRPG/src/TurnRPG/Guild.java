@@ -12,10 +12,19 @@ public class Guild {
 	private Player[] partyList;
 
 	
-	public Vector<Player> getPartyList() {
+	
+	public Vector<Player> getGuildList() {
 		return guildList;
 	}
-	
+
+	public void setGuildList(Vector<Player> guildList) {
+		this.guildList = guildList;
+	}
+
+	public Player[] getPartyList() {
+		return partyList;
+	}
+
 	public void setPartyList(Player[] partyList) {
 		this.partyList = partyList;
 	}
