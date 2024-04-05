@@ -137,24 +137,24 @@ public abstract class Unit {
 
 		// 체력 : hp + 장신구
 		if (ring != null) {
-			System.out.print(" [체력 : " + hp + " + " + ring.getPower());
+	//		System.out.print(" [체력 : " + hp + " + " + ring.getPower());
 		} else {
 			System.out.print(" [체력 : " + hp);
 		}
 		if (ring != null) {
-			System.out.println(" / " + maxHp + " + " + ring.getPower() + "]");
+//			System.out.println(" / " + maxHp + " + " + ring.getPower() + "]");
 		} else {
 			System.out.println(" / " + maxHp + "]");
 		}
 		// 공격력 : 공격 + 무기
 		if (weapon != null) {
-			System.out.print("[공격력 : " + att + " + " + weapon.getPower() + "]");
+//			System.out.print("[공격력 : " + att + " + " + weapon.getPower() + "]");
 		} else {
 			System.out.print("[공격력 : " + att + "]");
 		}
 		// 방어력 : 방어 : 갑옷
 		if (armor != null) {
-			System.out.print(" [방어력 : " + def + " + " + armor.getPower() + "]");
+	//		System.out.print(" [방어력 : " + def + " + " + armor.getPower() + "]");
 		} else {
 			System.out.print(" [방어력 : " + def + "]");
 		}

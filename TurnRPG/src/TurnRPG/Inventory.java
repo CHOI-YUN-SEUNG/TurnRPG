@@ -71,7 +71,7 @@ public class Inventory {
 		for (int i = 0; i < itemList.size(); i++) {
 			System.out.print("[" + (i + 1) + "번] ");
 			System.out.print("[이름 : " + itemList.get(i).getName() + "] ");
-			System.out.print("[능력 : " + itemList.get(i).getPower() + "] ");
+		//	System.out.print("[능력 : " + itemList.get(i).getPower() + "] ");
 			System.out.print("[가격 : " + itemList.get(i).getPrice() + "] ");
 			System.out.println();
 		}

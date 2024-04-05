@@ -2,14 +2,24 @@ package TurnRPG;
 
 public class Item {
 	public static final int WEAPON = 1; // 무기
-	public static final int ARMOR = 2; // 갑옷
+	public static final int PROTECTION = 2; // 갑옷
+	public static final int HELMET = 1;
+	public static final int SHOULDER = 2;
+	public static final int ARMOR = 3;
+	public static final int BOTTOMS = 4;
+	public static final int GLOVE = 5;
 	public static final int RING = 3; // 장신구
 
-	private int kind; // 종류
-	private String name; // 이름
-	private int power; // 능력
-	private int price; // 가격
-	
+	private int kind;
+	private String name;
+	private int code;
+	private int att;
+	private int cri;
+	private int def;
+	private int hp;
+	private int dex;
+	private int price;
+
 	public int getKind() {
 		return kind;
 	}
@@ -26,12 +36,52 @@ public class Item {
 		this.name = name;
 	}
 
-	public int getPower() {
-		return power;
+	public int getCode() {
+		return code;
 	}
 
-	public void setPower(int power) {
-		this.power = power;
+	public void setCode(int code) {
+		this.code = code;
+	}
+
+	public int getAtt() {
+		return att;
+	}
+
+	public void setAtt(int att) {
+		this.att = att;
+	}
+
+	public int getCri() {
+		return cri;
+	}
+
+	public void setCri(int cri) {
+		this.cri = cri;
+	}
+
+	public int getDef() {
+		return def;
+	}
+
+	public void setDef(int def) {
+		this.def = def;
+	}
+
+	public int getHp() {
+		return hp;
+	}
+
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+
+	public int getDex() {
+		return dex;
+	}
+
+	public void setDex(int dex) {
+		this.dex = dex;
 	}
 
 	public int getPrice() {
@@ -42,10 +92,15 @@ public class Item {
 		this.price = price;
 	}
 
-	public void setItem(int kind, String name, int power, int price) {
-		this.kind = kind;
-		this.name = name;
-		this.power = power;
-		this.price = price;
+	public void setWeapon(int weapon2, int i, String string, int j, int k) {
+
+	}
+	
+	public void setProtection() {
+
+	}
+	
+	public void setRing() {
+
 	}
 }
