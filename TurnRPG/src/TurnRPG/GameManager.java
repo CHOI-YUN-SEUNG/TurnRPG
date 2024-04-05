@@ -64,4 +64,8 @@ public class GameManager {
 		}
 		return number;
 	}
+	
+	public static int inputIndex(String message) {
+		return inputNumber(message)-1;
+	}
 }
