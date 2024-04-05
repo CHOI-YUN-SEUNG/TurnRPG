@@ -23,10 +23,12 @@ public class StageBattle extends Stage {
 				print_character();
 				if (p_index < Player.getPartySize()) {
 					player_attack(p_index, count);
+					System.out.println(count);
 					p_index += 1;
 				} else {
 					turn = !turn;
 					p_index = 0;
+					count++;
 				}
 			} else if (!turn) {
 				if (m_index < monList.size()) {
@@ -37,10 +39,26 @@ public class StageBattle extends Stage {
 					m_index = 0;
 				}
 			}
-			count++;
+
 			check_live();
-			if (monDead <= 0 || playerDead <= 0)
+			if (playerDead <= 0) {
+				System.out.println("파티가 전멸했다");
 				break;
+			}
+
+			if (monDead <= 0) {
+				p_index = 0;
+				System.out.println("던전 클리어~");
+				while (true) {
+					if (p_index < Player.getPartySize()) {
+						int now = Player.getGuildUnit(p_index).getAtt();
+						Player.getGuildUnit(p_index).setAtt(now + 1000);
+						p_index++;
+					} else
+						break;
+				}
+				break;
+			}
 		}
 		GameManager.nextStage = "LOBBY";
 		return false;
@@ -50,19 +68,17 @@ public class StageBattle extends Stage {
 	public void init() {
 		unitManager.getMon_list().clear();
 		unitManager.monster_rand_set(4);
-		unitManager.setPlayer(new Player());
 		monList = unitManager.getMon_list();
 		monDead = monList.size();
-		playerDead = Player.getGuildSize();
-
+		playerDead = Player.getPartySize();
 	}
 
 	private void print_character() {
 		System.out.println("======[BATTLE]======");
 		System.out.println(playerDead + " : " + monDead);
 		System.out.println("======[PLAYER]======");
-		for (int i = 0; i < Player.getGuildSize(); i++) {
-			Player.getGuildUnit(i).printData();
+		for (int i = 0; i < Player.getPartySize(); i++) {
+			Player.getPartyList().get(i).printData();
 		}
 		System.out.println("======[MONSTER]======");
 		for (int i = 0; i < monList.size(); i++) {
@@ -71,15 +87,16 @@ public class StageBattle extends Stage {
 	}
 
 	private void player_attack(int index, int count) {
-		Player p = Player.getGuildUnit(index);
+		Player p = Player.getPartyList().get(index);
 
 		if (p.getHp() <= 0)
 			return;
 
 		System.out.println("======[메뉴 선택]=====");
-		System.out.println("[" + p.getName() + "] [1.어택] [2.스킬]");
+		int sel = -1;
+		while (!(sel > 0 && sel < 3))
+			sel = GameManager.inputNumber("[" + p.getName() + "] [1.어택] [2.스킬]");
 
-		int sel = GameManager.scanner.nextInt();
 		if (sel == 1) {
 			while (true) {
 				int idx = rNum.nextInt(monList.size());
@@ -92,8 +109,10 @@ public class StageBattle extends Stage {
 			while (true) {
 				int idx = rNum.nextInt(monList.size());
 				if (monList.get(idx).getCurhp() > 0) {
-					int skillsel = GameManager.inputIndex("사용할 스킬을 선택하십시오.");
-					p.skill(skillsel,monList.get(idx),count);
+					// int skillsel = GameManager.inputIndex("사용할 스킬을 선택하십시오.");
+					// 스킬 창 출력 메소드
+					// p.skill(skillsel,monList.get(idx),count);
+					System.out.println("아직 미구현입니다");
 					break;
 				}
 			}
@@ -105,7 +124,7 @@ public class StageBattle extends Stage {
 		if (m.getCurhp() <= 0)
 			return;
 		while (true) {
-			int idx = rNum.nextInt(Player.getGuildSize());
+			int idx = rNum.nextInt(Player.getPartySize());
 			if (Player.getGuildUnit(idx).getHp() > 0) {
 				m.attack(Player.getGuildUnit(idx));
 				break;
@@ -119,12 +138,12 @@ public class StageBattle extends Stage {
 
 	private void check_live() {
 		int num = 0;
-		for (int i = 0; i < Player.getGuildSize(); i++) {
+		for (int i = 0; i < Player.getPartySize(); i++) {
 			if (Player.getGuildUnit(i).getHp() <= 0) {
 				num += 1;
 			}
 		}
-		playerDead = Player.getGuildSize() - num;
+		playerDead = Player.getPartySize() - num;
 
 		num = 0;
 		for (int i = 0; i < monList.size(); i++) {

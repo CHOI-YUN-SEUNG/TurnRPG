@@ -1,22 +1,28 @@
 package TurnRPG;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Random;
 import java.util.Vector;
 
 public class Guild {
+	
+	static  Guild instance = new  Guild();
 	private final int PARTY_SIZE = 3;
 	private Vector<Player> guildList = new Vector<>();
 	private Random r = new Random();
-	private Unit[] partyList;
+	private Player[] partyList;
 
-	public Vector<Player> getGuildList() {
+	
+	public Vector<Player> getPartyList() {
 		return guildList;
 	}
+	
+	public void setPartyList(Player[] partyList) {
+		this.partyList = partyList;
+	}
+
 
 	// 길드원 설정 메서드
-	public void setGuild() {
+	private Guild() {
 		guildList.add(new Player("전사", 5, 1000, 45, 5, 0));
 		guildList.add(new Player("마법사", 8, 800, 60, 5, 0));
 		guildList.add(new Player("힐러", 3, 500, 70, 5, 0));
@@ -26,7 +32,7 @@ public class Guild {
 			guildList.get(i).setParty(true);
 		}
 
-		partyList = new Unit[PARTY_SIZE];
+		partyList = new Player[PARTY_SIZE];
 
 		// 길드원의 파티 참가 유무가 참이면 파티 추가
 		int n = 0;
@@ -52,7 +58,7 @@ public class Guild {
 			System.out.print("[" + (i + 1) + "번]");
 			System.out.print(" [이름 : " + guildList.get(i).getName() + "]");
 			System.out.print(" [레벨 : " + guildList.get(i).getLevel() + "]");
-			System.out.print(" [체력 : " + guildList.get(i).hashCode());
+			System.out.print(" [체력 : " + guildList.get(i).getHp());
 			System.out.println(" / " + guildList.get(i).getMaxHp() + "]");
 			System.out.print("[공격력 : " + guildList.get(i).getAtt() + "]");
 			System.out.print(" [방어력 : " + guildList.get(i).getDef() + "]");
