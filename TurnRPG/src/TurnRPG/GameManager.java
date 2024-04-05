@@ -19,6 +19,7 @@ public class GameManager {
 	public void init() {
 		stageList.put("TITLE", new StageTitle());
 		stageList.put("LOBBY", new StageLobby());
+		stageList.put("MAP", new StageMap());
 		stageList.put("BATTLE", new StageBattle());
 		stageList.put("BONUS", new StageBonus());
 		stageList.put("SETTING", new StageSetting());

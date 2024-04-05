@@ -11,7 +11,7 @@ public class StageLobby extends Stage {
 			sel = GameManager.inputNumber("입력>> ");
 
 		if (sel == 1) {
-			GameManager.nextStage = "BATTLE";
+			GameManager.nextStage = "MAP";
 		} else if (sel == 2) {
 			GameManager.nextStage = "SETTING";
 		} else if (sel == 3) {
