@@ -1,24 +1,51 @@
 package TurnRPG;
 
-//5. 아이템 클래스 (Item)
-//변수 : 무기, 갑옷, 장신구 (static final), 종류, 이름, 능력, 가격
-//메서드 : 아이템 설정
-
 public class Item {
-	static final int WEAPON = 1; // 무기
-	static final int ARMOR = 2; // 갑옷
-	static final int RING = 3; // 장신구
-	int kind; // 종류
-	String name; // 이름
-	int power; // 능력
-	int price; // 가격
+	public static final int WEAPON = 1; // 무기
+	public static final int ARMOR = 2; // 갑옷
+	public static final int RING = 3; // 장신구
 
-// 아이템 설정 메서드
-	public void setItem(int k, String n, int p, int pr) {
-		kind = k;
-		name = n;
-		power = p;
-		price = pr;
+	private int kind; // 종류
+	private String name; // 이름
+	private int power; // 능력
+	private int price; // 가격
+	
+	public int getKind() {
+		return kind;
 	}
 
+	public void setKind(int kind) {
+		this.kind = kind;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getPower() {
+		return power;
+	}
+
+	public void setPower(int power) {
+		this.power = power;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public void setItem(int kind, String name, int power, int price) {
+		this.kind = kind;
+		this.name = name;
+		this.power = power;
+		this.price = price;
+	}
 }
