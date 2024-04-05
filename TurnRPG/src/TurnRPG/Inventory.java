@@ -41,41 +41,38 @@ public class Inventory {
 			selEquip -= 1;
 
 			// 입력한 아이템의 종류가 무기면
-			if (itemList.get(selEquip).kind == Item.WEAPON) {
+			if (itemList.get(selEquip).getKind() == Item.WEAPON) {
 				// 길드원에게 무기가 없으면 아이템리스트에 추가 후 무기 착용
 				if (Player.getGuildUnit(selUnit).getWeapon() != null) {
 					itemList.add(Player.getGuildUnit(selUnit).getWeapon());
 				}
 				Player.getGuildUnit(selUnit).setWeapon(itemList.get(selEquip)); 
 			} // 입력한 아이템의 종류가 갑옷이면
-			else if (itemList.get(selEquip).kind == Item.ARMOR) {
+			else if (itemList.get(selEquip).getKind() == Item.ARMOR) {
 				// 길드원에게 무기가 없으면 아이템리스트에 추가 후 무기 착용
 				if (Player.getGuildUnit(selUnit).getArmor() != null) {
 					itemList.add(Player.getGuildUnit(selUnit).getArmor());
 				}
 				Player.getGuildUnit(selUnit).setArmor(itemList.get(selEquip));
 			} // 입력한 아이템의 종류가 반지면
-			else if (itemList.get(selEquip).kind == Item.RING) {
-				// 길드원에게 무기가 없으면 아이템리스트에 추가 후 무기 착용
+			else if (itemList.get(selEquip).getKind() == Item.RING) {
 				if (Player.getGuildUnit(selUnit).getRing() != null) {
 					itemList.add(Player.getGuildUnit(selUnit).getArmor());
 				}
 				Player.getGuildUnit(selUnit).setRing(itemList.get(selEquip));
 			}
-			// 착용된 아이템은 아이템 리스트에서 삭제
 			itemList.remove(selEquip);
 		}
 	}
 
-	// 아이템리스트 출력 메서드
+
 	public void printItemList() {
 		System.out.println("============ [아이템리스트] ==============");
-		// 총 아이템 출력
 		for (int i = 0; i < itemList.size(); i++) {
 			System.out.print("[" + (i + 1) + "번] ");
-			System.out.print("[이름 : " + itemList.get(i).name + "] ");
-			System.out.print("[능력 : " + itemList.get(i).power + "] ");
-			System.out.print("[가격 : " + itemList.get(i).price + "] ");
+			System.out.print("[이름 : " + itemList.get(i).getName() + "] ");
+			System.out.print("[능력 : " + itemList.get(i).getPower() + "] ");
+			System.out.print("[가격 : " + itemList.get(i).getPrice() + "] ");
 			System.out.println();
 		}
 	}
@@ -89,13 +86,13 @@ public class Inventory {
 			int selSell = GameManager.scanner.nextInt() - 1;
 			if (selSell == -1)
 				break;
-			System.out.println(itemList.get(selSell).name + "을 판매합니다.");
+			System.out.println(itemList.get(selSell).getName() + "을 판매합니다.");
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			Player.money += (itemList.get(selSell).price / 2); // 50% 세금
+			Player.money += (itemList.get(selSell).getPrice() / 2); // 50% 세금
 			itemList.remove(selSell); // 아이템리스트에서 삭제
 		}
 	}

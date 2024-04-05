@@ -137,24 +137,24 @@ public abstract class Unit {
 
 		// 체력 : hp + 장신구
 		if (ring != null) {
-			System.out.print(" [체력 : " + hp + " + " + ring.power);
+			System.out.print(" [체력 : " + hp + " + " + ring.getPower());
 		} else {
 			System.out.print(" [체력 : " + hp);
 		}
 		if (ring != null) {
-			System.out.println(" / " + maxHp + " + " + ring.power + "]");
+			System.out.println(" / " + maxHp + " + " + ring.getPower() + "]");
 		} else {
 			System.out.println(" / " + maxHp + "]");
 		}
 		// 공격력 : 공격 + 무기
 		if (weapon != null) {
-			System.out.print("[공격력 : " + att + " + " + weapon.power + "]");
+			System.out.print("[공격력 : " + att + " + " + weapon.getPower() + "]");
 		} else {
 			System.out.print("[공격력 : " + att + "]");
 		}
 		// 방어력 : 방어 : 갑옷
 		if (armor != null) {
-			System.out.print(" [방어력 : " + def + " + " + armor.power + "]");
+			System.out.print(" [방어력 : " + def + " + " + armor.getPower() + "]");
 		} else {
 			System.out.print(" [방어력 : " + def + "]");
 		}
@@ -166,17 +166,17 @@ public abstract class Unit {
 		if (weapon == null) {
 			System.out.println("[무기 : 없음 ]");
 		} else {
-			System.out.println("[무기 : " + weapon.name + "]");
+			System.out.println("[무기 : " + weapon.getName() + "]");
 		}
 		if (armor == null) {
 			System.out.println("[방어구 : 없음 ]");
 		} else {
-			System.out.println("[방어구 : " + armor.name + "]");
+			System.out.println("[방어구 : " + armor.getName() + "]");
 		}
 		if (ring == null) {
 			System.out.println("[반지 : 없음 ]");
 		} else {
-			System.out.println("[반지 : " + ring.name + "]");
+			System.out.println("[반지 : " + ring.getName() + "]");
 		}
 	}
 
