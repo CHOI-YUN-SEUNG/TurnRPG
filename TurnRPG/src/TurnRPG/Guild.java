@@ -17,9 +17,9 @@ public class Guild {
 
 	// 길드원 설정 메서드
 	public void setGuild() {
-		guildList.add(new Player("전사", 5, 1000, 45, 45, 0));
-		guildList.add(new Player("마법사", 8, 800, 60, 30, 0));
-		guildList.add(new Player("힐러", 3, 500, 70, 30, 0));
+		guildList.add(new Player("전사", 5, 1000, 45, 5, 0));
+		guildList.add(new Player("마법사", 8, 800, 60, 5, 0));
+		guildList.add(new Player("힐러", 3, 500, 70, 5, 0));
 
 		// 파티 참여 여부
 		for (int i = 0; i < PARTY_SIZE; i++) {

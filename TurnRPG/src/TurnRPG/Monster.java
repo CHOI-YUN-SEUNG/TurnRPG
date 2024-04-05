@@ -67,11 +67,14 @@ public class Monster {
 	public void attack(Player target) {
 		int sample = random.nextInt(100);
 		int test = target.getDex() * 100; // 회피율 설정 어캐하지.....
-
-		if (sample > test ) {// !회피설정 해줄것) {
-			target.setHp((power - target.getDef()));
+		
+		if (sample > test) {// !회피설정 해줄것) {
+			int damage = power - target.getDef();
+			if(damage<0)
+				damage = 0;
+			target.setHp((target.getHp() - damage));
 			System.out.println("-------------------------------------------------");
-			System.out.println("[" + name + "] 가 " + "[" + target.getName() + "] 에게 " + (power - target.getDef())
+			System.out.println("[" + name + "] 가 " + "[" + target.getName() + "] 에게 " + damage
 					+ "의 데미지를 입힙니다. ");
 			if (target.getHp() <= 0) {
 				System.out.println("[" + target.getName() + "] 을 처치했습니다.");

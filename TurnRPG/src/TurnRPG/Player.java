@@ -27,11 +27,6 @@ public class Player extends Unit {
 
 	}
 
-	public static int getPartySize() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	// 길드 메뉴 메서드
 	public void guildMenu() {
 		guild.guildMenu();
