@@ -7,7 +7,7 @@ public class UnitManager {
 	static UnitManager instance = new UnitManager();
 	private Vector<Player> player_list = new Vector<Player>();
 	private	Vector<Monster> mon_list = new Vector<>();
-	private String pate = "TunRPG.";
+	private String pate = "TurnRPG.";
 	private String mons[] = { "MonsterTest" }; 
 	//mon 배열은 맵으로 부터 받아오는걸로 변경해야 맵 테마에 맞는 몹을 소환하기 편할것같다
 	//미믹은 그냥 따로 메소드를 만드는게 편할 것 같다
