@@ -10,18 +10,19 @@ public abstract class Unit {
 	private int def; // 방어
 	private int exp; // 경험치
 	private int dex; // 회피
-	private int critical;
+	private int cri;
 	private int code;
 	private boolean party; // 파티 가입 여부
 	private Item weapon; // 무기
-	private Item armor; // 갑옷
-	
+	private Item protection; // 갑옷
+	private Item ring; // 장신구
+
 	public int getDex() {
 		return dex;
 	}
 	
-	public Item getArmor() {
-		return armor;
+	public Item getProtection() {
+		return protection;
 	}
 	public int getAtt() {
 		return att;
@@ -83,11 +84,10 @@ public abstract class Unit {
 	public void setAtt(int att) {
 		this.att = att;
 	}
-	public void setArmor(Item armor) {
-		this.armor = armor;
+	public void setProtection(Item protection) {
+		this.protection = protection;
 	}
 
-	private Item ring; // 장신구
 
 // 생성자
 	
@@ -104,7 +104,7 @@ public abstract class Unit {
 		this.exp = exp;
 		party = false;
 		weapon = null;
-		armor = null;
+		protection = null;
 		ring = null;
 	}
 
@@ -120,14 +120,14 @@ public abstract class Unit {
 		this.exp = exp;
 		this.party = party;
 		weapon = null;
-		armor = null;
+		protection = null;
 		ring = null;
 	}
 
-	public void setItem(Item w, Item a, Item r) {
-		weapon = w;
-		armor = a;
-		ring = r;
+	public void setItem(Item weapon, Item protection, Item ring) {
+		this.weapon = weapon;
+		this.protection = protection;
+		this.ring = ring;
 	}
 
 // 능력값 출력 메서드
@@ -153,7 +153,7 @@ public abstract class Unit {
 			System.out.print("[공격력 : " + att + "]");
 		}
 		// 방어력 : 방어 : 갑옷
-		if (armor != null) {
+		if (protection != null) {
 	//		System.out.print(" [방어력 : " + def + " + " + armor.getPower() + "]");
 		} else {
 			System.out.print(" [방어력 : " + def + "]");
@@ -168,10 +168,10 @@ public abstract class Unit {
 		} else {
 			System.out.println("[무기 : " + weapon.getName() + "]");
 		}
-		if (armor == null) {
+		if (protection == null) {
 			System.out.println("[방어구 : 없음 ]");
 		} else {
-			System.out.println("[방어구 : " + armor.getName() + "]");
+			System.out.println("[방어구 : " + protection.getName() + "]");
 		}
 		if (ring == null) {
 			System.out.println("[반지 : 없음 ]");
