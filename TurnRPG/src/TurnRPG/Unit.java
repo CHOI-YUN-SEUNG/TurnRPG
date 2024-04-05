@@ -191,6 +191,10 @@ public abstract class Unit {
 		}
 	}
 
+	public void skill(Monster target) {
+		System.out.println("스킬은 구현중이다");
+	}
+	
 	public void printData() {
 		System.out.println("[" + name + "] [" + hp + "/" + maxHp + "] [" + att + "]");
 	}
