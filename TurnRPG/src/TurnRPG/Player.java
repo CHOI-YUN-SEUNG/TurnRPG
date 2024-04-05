@@ -59,16 +59,4 @@ public class Player extends Unit {
 	static public int getItemSize() {
 		return inven.itemList.size();
 	}
-
-	public void skill() {
-
-	}
-	
-	public void skill(Monster monster) {
-
-	}
-
-	public void skill(int num, Monster monster,int count) {
-
-	}
 }
