@@ -15,43 +15,43 @@ public class Shop {
 		itemList.add(temp);
 
 		temp = new Item();
-		temp.setProtection(Item.PROTECTION, Item.GLOVE, "테스트헬멧", 100, 1000);
+		temp.setProtection(Item.PROTECTION, Item.GLOVE, "테스트헬멧", 100, 0, 0, 0, 0, 1000);
 		itemList.add(temp);
 
 		temp = new Item();
-		temp.setProtection(Item.PROTECTION, Item.GLOVE, "테스트헬멧", 100, 1000);
+		temp.setProtection(Item.PROTECTION, Item.GLOVE, "테스트헬멧2", 100, 0, 0, 0, 0, 1000);
 		itemList.add(temp);
 
 		temp = new Item();
-		temp.setProtection(Item.PROTECTION, Item.SHOULDER, "테스트견갑", 100, 1000);
+		temp.setProtection(Item.PROTECTION, Item.SHOULDER, "테스트견갑", 0, 100, 0, 0, 0, 1000);
 		itemList.add(temp);
 
 		temp = new Item();
-		temp.setProtection(Item.PROTECTION, Item.SHOULDER, "테스트견갑2", 100, 1000);
+		temp.setProtection(Item.PROTECTION, Item.SHOULDER, "테스트견갑2", 0, 100, 0, 0, 0, 1000);
 		itemList.add(temp);
 
 		temp = new Item();
-		temp.setProtection(Item.PROTECTION, Item.ARMOR, "테스트상의", 100, 1000);
+		temp.setProtection(Item.PROTECTION, Item.ARMOR, "테스트상의", 0, 0, 100, 0, 0, 1000);
 		itemList.add(temp);
 
 		temp = new Item();
-		temp.setProtection(Item.PROTECTION, Item.ARMOR, "테스트상의2", 100, 1000);
+		temp.setProtection(Item.PROTECTION, Item.ARMOR, "테스트상의2", 0, 0, 100, 0, 0, 1000);
 		itemList.add(temp);
 
 		temp = new Item();
-		temp.setProtection(Item.PROTECTION, Item.BOTTOMS, "테스트하의", 100, 1000);
+		temp.setProtection(Item.PROTECTION, Item.BOTTOMS, "테스트하의", 0, 0, 0, 100, 0, 1000);
 		itemList.add(temp);
 
 		temp = new Item();
-		temp.setProtection(Item.PROTECTION, Item.BOTTOMS, "테스트하의2", 100, 1000);
+		temp.setProtection(Item.PROTECTION, Item.BOTTOMS, "테스트하의2", 0, 0, 0, 100, 0, 1000);
 		itemList.add(temp);
 
 		temp = new Item();
-		temp.setProtection(Item.PROTECTION, Item.GLOVE, "테스트장갑", 100, 1000);
+		temp.setProtection(Item.PROTECTION, Item.GLOVE, "테스트장갑", 0, 0, 0, 0,100, 1000);
 		itemList.add(temp);
 
 		temp = new Item();
-		temp.setProtection(Item.PROTECTION, Item.GLOVE, "테스트장갑2", 100, 1000);
+		temp.setProtection(Item.PROTECTION, Item.GLOVE, "테스트장갑2",  0, 0, 0, 0, 100, 1000);
 		itemList.add(temp);
 
 		temp = new Item();

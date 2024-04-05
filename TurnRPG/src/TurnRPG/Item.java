@@ -13,7 +13,7 @@ public class Item {
 	private int kind;
 	private String name;
 	private int code;
-	private int value;
+//	private int value;
 	private int att;
 	private int cri;
 	private int def;
@@ -106,7 +106,7 @@ public class Item {
 		this.kind = kind;
 		this.code = code;
 		this.name = name;
-		this.value = value;
+		// this.value = value;
 		this.price = price;
 	}
 
@@ -119,5 +119,18 @@ public class Item {
 		this.hp = hp;
 		this.dex = dex;
 		this.price = price;
+	}
+
+	public void setProtection(int kind, int code, String name, int att, int def, int hp, int dex, int cri, int price) {
+		this.kind = kind;
+		this.code = code;
+		this.name = name;
+		this.att = att;
+		this.def = def;
+		this.hp = hp;
+		this.dex = dex;
+		this.cri = cri;
+		this.price = price;
+
 	}
 }
