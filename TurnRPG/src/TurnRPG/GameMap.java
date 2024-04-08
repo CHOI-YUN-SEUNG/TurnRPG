@@ -3,7 +3,7 @@ package TurnRPG;
 import java.util.ArrayList;
 import java.util.List;
 
-class GameMap {
+abstract class GameMap {
 	private String name;
 	private boolean visitable;
 	private List<String> subMaps;

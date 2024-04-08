@@ -81,11 +81,8 @@ public class StageMap extends Stage {
 
 	private List<GameMap> generateAvailableMaps() {
 		List<GameMap> availableMaps = new ArrayList<>();
-		availableMaps.add(new GameMap("테스트1", true));
-		availableMaps.add(new GameMap("테스트2", false));
-		availableMaps.add(new GameMap("테스트3", false));
-		availableMaps.add(new GameMap("테스트4", false));
-		availableMaps.add(new GameMap("테스트5", false));
+		availableMaps.add(new TestMap1("테스트1", true));
+		availableMaps.add(new TestMap1("테스트2", false));
 		return availableMaps;
 	}
 }
