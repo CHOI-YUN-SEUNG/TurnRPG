@@ -1,6 +1,7 @@
 package TurnRPG;
 
 public class PlayerMage extends Player {
+	
 	public PlayerMage(String name, int level, int maxhp, int att, int def, int dex, int cri, int exp) {
 		super(name, level, maxhp, att, def, dex, cri, exp);
 	}

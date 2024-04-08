@@ -148,8 +148,6 @@ public class Guild {
 		}
 
 		// 길드원 추가하기
-		
-		
 		System.out.println("=====================================");
 		System.out.print("[이름 : " + name + "]");
 		System.out.print(" [레벨 : " + 1 + "]");
