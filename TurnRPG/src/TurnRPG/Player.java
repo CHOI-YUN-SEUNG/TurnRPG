@@ -19,11 +19,14 @@ public class Player extends Unit {
 	public Player(String name, int level, int maxhp, int att, int def, int exp, boolean party) {
 		super(name, level, maxhp, att, def, exp, false);
 	}
-
+	
+	public Player(String name, int level, int maxhp, int att, int def, int dex, int cri, int exp) {
+		super(name, level, maxhp, att, def, dex, cri, exp);
+	}
+	
 	public Player() {
 
 	}
-
 	
 	// 길드 메뉴 메서드
 	public void guildMenu() {
