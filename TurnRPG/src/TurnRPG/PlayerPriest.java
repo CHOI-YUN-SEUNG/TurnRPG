@@ -1,8 +1,8 @@
 package TurnRPG;
 
 public class PlayerPriest extends Player {
-	public PlayerPriest(String name, int level, int maxhp, int att, int def, int exp) {
-		super(name, level, maxhp, att, def, exp);
+	public PlayerPriest(String name, int level, int maxhp, int att, int def, int dex, int cri, int exp) {
+		super(name, level, maxhp, att, def, dex, cri, exp);
 	}
 
 	public void skill(Monster target) {
