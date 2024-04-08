@@ -1,6 +1,5 @@
 package TurnRPG;
 
-//플레이어가 상속받을 추상클래스
 public abstract class Unit {
 	private String name; // 이름
 	private int level; // 레벨
@@ -20,77 +19,97 @@ public abstract class Unit {
 	public int getDex() {
 		return dex;
 	}
-	
+
 	public Item getProtection() {
 		return protection;
 	}
+
 	public int getAtt() {
 		return att;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public int getLevel() {
 		return level;
 	}
+
 	public void setLevel(int level) {
 		this.level = level;
 	}
+
 	public int getHp() {
 		return hp;
 	}
+
 	public void setHp(int hp) {
 		this.hp = hp;
 	}
+
 	public int getMaxHp() {
 		return maxHp;
 	}
+
 	public void setMaxHp(int maxHp) {
 		this.maxHp = maxHp;
 	}
+
 	public int getDef() {
 		return def;
 	}
+
 	public void setDef(int def) {
 		this.def = def;
 	}
+
 	public int getExp() {
 		return exp;
 	}
+
 	public void setExp(int exp) {
 		this.exp = exp;
 	}
+
 	public boolean isParty() {
 		return party;
 	}
+
 	public void setParty(boolean party) {
 		this.party = party;
 	}
+
 	public Item getWeapon() {
 		return weapon;
 	}
+
 	public void setWeapon(Item weapon) {
 		this.weapon = weapon;
 	}
+
 	public Item getRing() {
 		return ring;
 	}
+
 	public void setRing(Item ring) {
 		this.ring = ring;
 	}
+
 	public void setAtt(int att) {
 		this.att = att;
 	}
+
 	public void setProtection(Item protection) {
 		this.protection = protection;
 	}
 
-
 // 생성자
-	
+
 	Unit() {
 	}
 
@@ -137,7 +156,7 @@ public abstract class Unit {
 
 		// 체력 : hp + 장신구
 		if (ring != null) {
-	//		System.out.print(" [체력 : " + hp + " + " + ring.getPower());
+			// System.out.print(" [체력 : " + hp + " + " + ring.getPower());
 		} else {
 			System.out.print(" [체력 : " + hp);
 		}
@@ -154,7 +173,7 @@ public abstract class Unit {
 		}
 		// 방어력 : 방어 : 갑옷
 		if (protection != null) {
-	//		System.out.print(" [방어력 : " + def + " + " + armor.getPower() + "]");
+			// System.out.print(" [방어력 : " + def + " + " + armor.getPower() + "]");
 		} else {
 			System.out.print(" [방어력 : " + def + "]");
 		}
@@ -180,7 +199,10 @@ public abstract class Unit {
 		}
 	}
 
-// 공격 메서드
+	public void skill(Monster target) {
+		System.out.println("스킬은 구현중이다");
+	}
+
 	public void attack(Monster target) {
 		target.setCurhp(target.getCurhp() - att);
 		System.out.println("-------------------------------------------------");
@@ -191,10 +213,6 @@ public abstract class Unit {
 		}
 	}
 
-	public void skill(Monster target) {
-		System.out.println("스킬은 구현중이다");
-	}
-	
 	public void printData() {
 		System.out.println("[" + name + "] [" + hp + "/" + maxHp + "] [" + att + "]");
 	}

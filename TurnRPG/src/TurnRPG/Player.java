@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 public class Player extends Unit {
-	static int money; // 소지금
-
-	// 다른 클래스에서도 접근 가능
+	static int money;
 	static Guild guild = Guild.instance;
 	static Inventory inven = new Inventory();
 
@@ -26,6 +24,7 @@ public class Player extends Unit {
 
 	}
 
+	
 	// 길드 메뉴 메서드
 	public void guildMenu() {
 		guild.guildMenu();
@@ -56,13 +55,12 @@ public class Player extends Unit {
 
 	// 길드 크기 반환 메서드
 	static public int getPartySize() {
-		return getPartySize();
+		return guild.getPartySize();
 	}
 
 	// 아이템 크기 반환 메서드
 	static public int getItemSize() {
 		return inven.getItemList().size();
 	}
-
 
 }

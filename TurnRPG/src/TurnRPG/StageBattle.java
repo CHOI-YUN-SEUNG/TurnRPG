@@ -45,9 +45,9 @@ public class StageBattle extends Stage {
 				System.out.println("탐사가 불가능하다. 강해져서 돌아오자");
 				while (true) {
 					if (p_index < Player.getPartySize()) {
-						int now = Player.getGuildUnit(p_index).getAtt(); //디버프를 줘야하는데 뭐로하지
+						int now = Player.getGuildUnit(p_index).getAtt(); // 디버프를 줘야하는데 뭐로하지
 						Player.getGuildUnit(p_index).setAtt(now - 1000);
-						Player.getGuildUnit(p_index).setHp(Player.getGuildUnit(p_index).getMaxHp());//풀피로 힐해주고
+						Player.getGuildUnit(p_index).setHp(Player.getGuildUnit(p_index).getMaxHp());// 풀피로 힐해주고
 						p_index++;
 					} else
 						break;
@@ -118,10 +118,11 @@ public class StageBattle extends Stage {
 			while (true) {
 				int idx = rNum.nextInt(monList.size());
 				if (monList.get(idx).getCurhp() > 0) {
+					p.skill(monList.get(idx));
 					// int skillsel = GameManager.inputIndex("사용할 스킬을 선택하십시오.");
 					// 스킬 창 출력 메소드
 					// p.skill(skillsel,monList.get(idx),count);
-					System.out.println("아직 미구현입니다");
+
 					break;
 				}
 			}
