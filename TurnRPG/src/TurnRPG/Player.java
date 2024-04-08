@@ -7,7 +7,7 @@ public class Player extends Unit {
 	static int money;
 	static Guild guild = Guild.instance;
 	static Inventory inven = new Inventory();
-
+	
 	public void init() {
 		money = 100000; // 소지금
 	}
@@ -23,6 +23,7 @@ public class Player extends Unit {
 	public Player(String name, int level, int maxhp, int att, int def, int dex, int cri, int exp) {
 		super(name, level, maxhp, att, def, dex, cri, exp);
 	}
+	
 	
 	public Player() {
 

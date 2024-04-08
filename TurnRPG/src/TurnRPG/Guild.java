@@ -31,9 +31,9 @@ public class Guild {
 	}
 
 	private Guild() {
-		guildList.add(new PlayerWarrior("전사", 8, 800, 60, 5, 0));
-		guildList.add(new PlayerArchor("아처", 5, 1000, 45, 5, 0));
-		guildList.add(new PlayerPriest("힐러", 3, 500, 70, 5, 0));
+		guildList.add(new PlayerWarrior("전사", 8, 800, 60, 5, 5, 5, 0));
+		guildList.add(new PlayerArchor("아처", 5, 1000, 45, 5, 5, 5, 0));
+		guildList.add(new PlayerPriest("힐러", 3, 500, 70, 5, 5, 5, 0));
 
 		for (int i = 0; i < PARTY_SIZE; i++) {
 			guildList.get(i).setParty(true);
@@ -122,15 +122,34 @@ public class Guild {
 		name += n3[r.nextInt(n3.length)];
 
 		// 랜덤 능력값 정하기
-		int	code = r.nextInt(5);
+		int code = r.nextInt(5);
 		int rNum = r.nextInt(8) + 2; // 2~10까지
 		int hp = rNum * 11;
 		int att = rNum + 1;
 		int def = rNum / 2 + 1;
 		int dex = 0;
 		int cri = 0;
+
+		if (code == 1) {
+			PlayerWarrior temp = new PlayerWarrior(name, 1, hp, att, def, dex, cri, 0);
+			guildList.add(temp);
+		} else if (code == 2) {
+			PlayerArchor temp = new PlayerArchor(name, 1, hp, att, def, dex, cri, 0);
+			guildList.add(temp);
+		} else if (code == 3) {
+			PlayerPriest temp = new PlayerPriest(name, 1, hp, att, def, dex, cri, 0);
+			guildList.add(temp);
+		} else if (code == 4) {
+			PlayerMage temp = new PlayerMage(name, 1, hp, att, def, dex, cri, 0);
+			guildList.add(temp);
+		} else if (code == 5) {
+			PlayerAssassin temp = new PlayerAssassin(name, 1, hp, att, def, dex, cri, 0);
+			guildList.add(temp);
+		}
+
 		// 길드원 추가하기
-		Player temp = new Player(name, 1, hp, att, def, dex, cri, 0);
+		
+		
 		System.out.println("=====================================");
 		System.out.print("[이름 : " + name + "]");
 		System.out.print(" [레벨 : " + 1 + "]");
@@ -149,7 +168,7 @@ public class Guild {
 			e.printStackTrace();
 		}
 
-		guildList.add(temp);
+		
 		Player.money -= 5000;
 
 	}
