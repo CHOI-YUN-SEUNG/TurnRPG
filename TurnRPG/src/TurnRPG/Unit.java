@@ -16,6 +16,10 @@ public abstract class Unit {
 	private Item protection; // 갑옷
 	private Item ring; // 장신구
 
+	public int getCri() {
+		return cri;
+	}
+	
 	public int getDex() {
 		return dex;
 	}
@@ -142,6 +146,24 @@ public abstract class Unit {
 		protection = null;
 		ring = null;
 	}
+	public Unit(String name, int level, int hp, int att, int def,int dex, int cri, int exp) {
+		super();
+		this.name = name;
+		this.level = level;
+		this.maxHp = hp;
+		this.hp = maxHp;
+		this.att = att;
+		this.def = def;
+		this.dex = dex;
+		this.cri = cri;
+		this.exp = exp;
+		
+		party = false;
+		weapon = null;
+		protection = null;
+		ring = null;
+	}
+	
 
 	public void setItem(Item weapon, Item protection, Item ring) {
 		this.weapon = weapon;

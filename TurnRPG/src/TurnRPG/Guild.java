@@ -4,15 +4,16 @@ import java.util.Random;
 import java.util.Vector;
 
 public class Guild {
-	
-	static  Guild instance = new  Guild();
+	static Guild instance = new Guild();
 	private final int PARTY_SIZE = 3;
 	private Vector<Player> guildList = new Vector<>();
 	private Random r = new Random();
 	private Player[] partyList;
 
-	
-	
+	public int getPartySize() {
+		return PARTY_SIZE;
+	}
+
 	public Vector<Player> getGuildList() {
 		return guildList;
 	}
@@ -29,21 +30,17 @@ public class Guild {
 		this.partyList = partyList;
 	}
 
-
-	// 길드원 설정 메서드
 	private Guild() {
-		guildList.add(new Player("전사", 5, 1000, 45, 5, 0));
-		guildList.add(new Player("마법사", 8, 800, 60, 5, 0));
-		guildList.add(new Player("힐러", 3, 500, 70, 5, 0));
+		guildList.add(new PlayerWarrior("전사", 8, 800, 60, 5, 0));
+		guildList.add(new PlayerArchor("아처", 5, 1000, 45, 5, 0));
+		guildList.add(new PlayerPriest("힐러", 3, 500, 70, 5, 0));
 
-		// 파티 참여 여부
 		for (int i = 0; i < PARTY_SIZE; i++) {
 			guildList.get(i).setParty(true);
 		}
 
 		partyList = new Player[PARTY_SIZE];
 
-		// 길드원의 파티 참가 유무가 참이면 파티 추가
 		int n = 0;
 		for (int i = 0; i < guildList.size(); i++) {
 			if (guildList.get(i).isParty() == true) {
@@ -53,7 +50,6 @@ public class Guild {
 		}
 	}
 
-	// 해당 길드원 가져오기 메서드
 	public Player getGuildUnit(int num) {
 		return guildList.get(num);
 	}
@@ -71,6 +67,8 @@ public class Guild {
 			System.out.println(" / " + guildList.get(i).getMaxHp() + "]");
 			System.out.print("[공격력 : " + guildList.get(i).getAtt() + "]");
 			System.out.print(" [방어력 : " + guildList.get(i).getDef() + "]");
+			System.out.print(" [회피율 : " + guildList.get(i).getDex() + "]");
+			System.out.print(" [치명타 : " + guildList.get(i).getCri() + "]");
 			System.out.println(" [파티중 : " + guildList.get(i).isParty() + "]");
 			System.out.println();
 		}
@@ -110,7 +108,7 @@ public class Guild {
 		}
 	}
 
-	public void buyUnit() {
+	public void buyUnit() { // 코드 랜덤 뽑기 후 코드에 따라서 다르게 설정하자
 		// 플레이어 소지금이 5000골드 이하면 길드원 추가 불가
 		if (Player.money < 5000)
 			return;
@@ -124,13 +122,15 @@ public class Guild {
 		name += n3[r.nextInt(n3.length)];
 
 		// 랜덤 능력값 정하기
+		int	code = r.nextInt(5);
 		int rNum = r.nextInt(8) + 2; // 2~10까지
 		int hp = rNum * 11;
 		int att = rNum + 1;
 		int def = rNum / 2 + 1;
-
+		int dex = 0;
+		int cri = 0;
 		// 길드원 추가하기
-		Player temp = new Player(name, 1, hp, att, def, 0);
+		Player temp = new Player(name, 1, hp, att, def, dex, cri, 0);
 		System.out.println("=====================================");
 		System.out.print("[이름 : " + name + "]");
 		System.out.print(" [레벨 : " + 1 + "]");
@@ -138,6 +138,8 @@ public class Guild {
 		System.out.println(" / " + hp + "]");
 		System.out.print("[공격력 : " + att + "]");
 		System.out.println(" [방어력 : " + def + "]");
+		System.out.print(" [회피율 : " + dex + "]");
+		System.out.print(" [치명타 : " + cri + "]");
 		System.out.println("길드원을 추가합니다.");
 		System.out.println("=====================================");
 
@@ -154,8 +156,7 @@ public class Guild {
 
 	public void removeUnit() {
 		printAllUnitStaus();
-		System.out.println("삭제할 번호를 입력하세요 ");
-		int sel = GameManager.scanner.nextInt() - 1;
+		int sel = GameManager.inputIndex("삭제할 번호를 입력하세요 ");
 
 		// 파티중인 길드원은 삭제 불가
 		if (guildList.get(sel).isParty()) {
@@ -186,6 +187,8 @@ public class Guild {
 			System.out.println(" / " + partyList[i].getMaxHp() + "]");
 			System.out.print("[공격력 : " + partyList[i].getAtt() + "]");
 			System.out.print(" [방어력 : " + partyList[i].getDef() + "]");
+			System.out.print(" [회피율 : " + guildList.get(i).getDex() + "]");
+			System.out.print(" [치명타 : " + guildList.get(i).getCri() + "]");
 			System.out.println(" [파티중 : " + guildList.get(i).isParty() + "]");
 			System.out.println();
 		}
@@ -213,13 +216,11 @@ public class Guild {
 	// 파티원 교체 메서드
 	public void partyChange() {
 		printParty();
-		System.out.println("교체할 번호를 입력하세요 ");
-		int partyNum = GameManager.scanner.nextInt() - 1;
+		int partyNum = GameManager.inputIndex("교체할 번호를 입력하세요 ");
 
 		// 길드원 능력값 출력
 		printAllUnitStaus();
-		System.out.println("참가할 번호를 입력하세요 ");
-		int guildNum = GameManager.scanner.nextInt() - 1;
+		int guildNum = GameManager.inputIndex("참가할 번호를 입력하세요 ");
 
 		// 교체 당한 파티원
 		partyList[partyNum].setParty(false);
