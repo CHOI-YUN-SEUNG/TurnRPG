@@ -3,7 +3,13 @@ package TurnRPG;
 import java.util.ArrayList;
 
 public class Inventory {
+	static Inventory instance = new Inventory();
+
 	private ArrayList<Item> itemList = new ArrayList<>();
+
+	public Inventory() {
+
+	}
 
 	public void inventoryMenu() {
 		while (true) {

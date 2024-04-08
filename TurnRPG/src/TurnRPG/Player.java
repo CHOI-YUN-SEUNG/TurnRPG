@@ -6,6 +6,7 @@ import java.util.Vector;
 public class Player extends Unit {
 	static int money;
 	static Guild guild = Guild.instance;
+	static Inventory inventory = Inventory.instance;
 	static Inventory inven = new Inventory();
 	
 	public void init() {
