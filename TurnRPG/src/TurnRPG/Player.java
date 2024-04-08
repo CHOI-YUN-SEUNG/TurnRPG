@@ -48,6 +48,10 @@ public class Player extends Unit {
 		return guild.getPartyList();
 	}
 
+	static public Player getPartyUnit(int num) {
+		return guild.getPartyUnit(num);
+	}
+	
 	// 아이템 리스트 반환 메서드
 	static public ArrayList<Item> getItemList() {
 		return inven.getItemList();
