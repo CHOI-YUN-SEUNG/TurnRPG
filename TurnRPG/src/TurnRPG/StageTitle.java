@@ -1,20 +1,25 @@
 package TurnRPG;
 
 public class StageTitle extends Stage {
-	private int count = 0;
+	private int count;
+	private Thread thread;
 
 	@Override
 	public boolean update() {
 		System.out.println("== TURN RPG 2024 ==");
-		System.out.println("Press Enter to continue...\n");
+		System.out.println("Press Enter to Skip...\n");
 		readStory();
-		GameManager.nextStage = "LOBBY";
+		if (count == 10) {
+			System.out.println("Press Double Enter to Continue...");
+			GameManager.scanner.nextLine();
+			GameManager.nextStage = "LOBBY";
+		}
 		return false;
 	}
 
 	@Override
 	public void init() {
-
+		count = 0;
 	}
 
 	private void printStory(int order) {
@@ -41,21 +46,20 @@ public class StageTitle extends Stage {
 	}
 
 	private void waitForEnter() {
-		Thread thread = new Thread(() -> {
+		thread = new Thread(() -> {
 			GameManager.scanner.nextLine();
 			GameManager.nextStage = "LOBBY";
-			count = 10;
+			count = -1;
 		});
 		thread.start();
 	}
 
 	private void readStory() {
 		waitForEnter();
-		while (count < 10) {
+		while (count != -1 && count < 10) {
 			try {
-				printStory(count);
-				Thread.sleep(1000);
-				count++;
+				printStory(count++);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

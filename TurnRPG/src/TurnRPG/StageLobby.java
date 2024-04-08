@@ -9,7 +9,6 @@ public class StageLobby extends Stage {
 		int sel = -1;
 		while (!(sel > 0 && sel < 4))
 			sel = GameManager.inputNumber("입력>> ");
-
 		if (sel == 1) {
 			GameManager.nextStage = "MAP";
 		} else if (sel == 2) {
