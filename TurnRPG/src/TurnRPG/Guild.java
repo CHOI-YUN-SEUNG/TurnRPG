@@ -91,7 +91,7 @@ public class Guild {
 			System.out.println("=============== [길드관리] ================");
 			System.out.println("[1.길드 목록]\t\t[2.길드원 추가]\t\t[3.길드원 삭제]");
 			System.out.println("[4.파티원 교체]\t\t[5.정렬]\t\t\t[0.뒤로가기]");
-			int sel = GameManager.scanner.nextInt();
+			int sel = GameManager.inputNumber("입력>>");
 			if (sel == 1) {
 				printAllUnitStaus();
 			} else if (sel == 2) {
@@ -267,5 +267,10 @@ public class Guild {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public Player getPartyUnit(int num) {
+		return partyList[num];
+	
 	}
 }
