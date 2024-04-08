@@ -119,8 +119,8 @@ public class StageBattle extends Stage {
 				int idx = rNum.nextInt(monList.size());
 				if (monList.get(idx).getCurhp() > 0) {
 					p.skill(monList.get(idx));
-					// int skillsel = GameManager.inputIndex("사용할 스킬을 선택하십시오.");
-					// 스킬 창 출력 메소드
+					// int skillsel = GameManager.inputIndex("사용할 스킬을 선택하십시오."); //스킬이 여러개인 친구들을 만들면 스킬 메소드 내에 추가하는게 더 나을듯
+					//턴 값도 보내 줘야 턴을 이용해 나누기를 하고 스킬 쿨을 조정 할듯,
 					// p.skill(skillsel,monList.get(idx),count);
 
 					break;

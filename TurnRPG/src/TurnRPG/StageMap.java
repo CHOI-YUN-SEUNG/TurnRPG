@@ -6,6 +6,10 @@ import java.util.List;
 public class StageMap extends Stage {
 	private List<GameMap> availableMaps;
 
+	
+
+	
+	
 	@Override
 	public boolean update() {
 		exploreMap();
@@ -50,7 +54,7 @@ public class StageMap extends Stage {
 					try {
 						Thread.sleep(500);
 						System.out.println("탐험 중입니다...");
-						Thread.sleep(1000);
+						Thread.sleep(500);
 						System.out.println("적을 만났습니다!");
 					} catch (InterruptedException e) {
 						e.printStackTrace();
@@ -79,7 +83,7 @@ public class StageMap extends Stage {
 		}
 	}
 
-	private List<GameMap> generateAvailableMaps() {
+	private List<GameMap> generateAvailableMaps() {//맵 클리어 체크 메소드 추가필요, 앞뒤 예외 처리 해두고 이전 지역 서브맵 클리어 확인 필요 
 		List<GameMap> availableMaps = new ArrayList<>();
 		availableMaps.add(new TestMap1("테스트1", true));
 		availableMaps.add(new TestMap1("테스트2", false));

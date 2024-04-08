@@ -7,4 +7,9 @@ public class TestMap1 extends GameMap {
 	}
 
 	// 세부지역 이름을 다시 짓고 싶은데
+	
+	
+	
+	
+	
 }
