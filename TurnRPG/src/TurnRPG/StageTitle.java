@@ -2,18 +2,13 @@ package TurnRPG;
 
 public class StageTitle extends Stage {
 	private int count;
-	private Thread thread;
 
 	@Override
 	public boolean update() {
 		System.out.println("== TURN RPG 2024 ==");
-		System.out.println("Press Enter to Skip...\n");
+		System.out.println("Press Enter to Continue...\n");
+		waitForEnter();
 		readStory();
-		if (count == 10) {
-			System.out.println("Press Double Enter to Continue...");
-			GameManager.scanner.nextLine();
-			GameManager.nextStage = "LOBBY";
-		}
 		return false;
 	}
 
@@ -43,11 +38,13 @@ public class StageTitle extends Stage {
 			System.out.println("오늘도 험난한 모험을 떠납니다.");
 		else if (order == 9)
 			System.out.println("판테온 대륙은 다시 평화로운 땅이 될 수 있을 것 인가...");
+		else if (order >= 10)
+			System.out.print("");
 	}
 
 	private void waitForEnter() {
-		thread = new Thread(() -> {
-			GameManager.scanner.nextLine();
+		Thread thread = new Thread(() -> {
+			String tmep = GameManager.scanner.nextLine();
 			GameManager.nextStage = "LOBBY";
 			count = -1;
 		});
@@ -55,8 +52,7 @@ public class StageTitle extends Stage {
 	}
 
 	private void readStory() {
-		waitForEnter();
-		while (count != -1 && count < 10) {
+		while (count != -1) {
 			try {
 				printStory(count++);
 				Thread.sleep(100);

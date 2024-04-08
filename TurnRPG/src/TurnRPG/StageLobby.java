@@ -8,7 +8,7 @@ public class StageLobby extends Stage {
 		System.out.println("[1. 전투] [2. 설정] [3. 종료]");
 		int sel = -1;
 		while (!(sel > 0 && sel < 4))
-			sel = GameManager.inputNumber("입력>> ");
+			sel = GameManager.inputNumber("입력>> "); 
 		if (sel == 1) {
 			GameManager.nextStage = "MAP";
 		} else if (sel == 2) {
