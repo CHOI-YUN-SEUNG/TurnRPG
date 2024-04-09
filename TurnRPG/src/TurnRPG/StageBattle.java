@@ -59,6 +59,12 @@ public class StageBattle extends Stage {
 			if (monDead <= 0) {
 				p_index = 0;
 				System.out.println("던전 클리어~");
+				int a = StageMap.getSelectedMap().findSubMapIndex(StageMap.getSelectedSubmap());
+				System.out.println(a);
+				StageMap.getSelectedMap().visitSubMap(a);
+				
+				//몹을 다 잡았을 때 던전 방문 정보를 갱신하고...
+				// 다음 맵을 여는 조건을 어떻게하지 .....
 				while (true) {
 					if (p_index < Player.getPartySize()) {
 						int now = Player.getGuildUnit(p_index).getAtt(); // 경험치로 바꿔야함
@@ -77,7 +83,7 @@ public class StageBattle extends Stage {
 	@Override
 	public void init() {
 		unitManager.getMon_list().clear();
-		unitManager.spawnMonsters(StageMap.getSelectedMap().getClazzName(), 4); //이 숫자도 변수로 해서 유동적으로 받을 수 있게 변경하면 되겠다
+		unitManager.spawnMonsters(StageMap.getSelectedMap().getClazzName(), rNum.nextInt(3)+3);
 		monList = unitManager.getMon_list();
 		monDead = monList.size();
 		playerDead = Player.getPartySize();
@@ -126,7 +132,6 @@ public class StageBattle extends Stage {
 					// 스킬 메소드 내에 추가하는게 더 나을듯
 					// 턴 값도 보내 줘야 턴을 이용해 나누기를 하고 스킬 쿨을 조정 할듯,
 					// p.skill(skillsel,monList.get(idx),count);
-
 					break;
 				}
 			}

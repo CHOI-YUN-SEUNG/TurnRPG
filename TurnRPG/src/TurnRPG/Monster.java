@@ -66,10 +66,10 @@ public class Monster {
 
 	public void attack(Player target) {
 		int sample = random.nextInt(100);
-		int test = target.getDex(); // 회피율 설정 어캐하지.....
+		int test = target.getDex(); 
 		
-		if (sample > test) {// !회피설정 해줄것) {
-			int damage = power - target.getDef();
+		if (sample > test) {
+			int damage = power - target.getDef() ;
 			if(damage<0)
 				damage = 0;
 			target.setHp((target.getHp() - damage));

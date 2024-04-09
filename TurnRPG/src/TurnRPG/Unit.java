@@ -1,5 +1,7 @@
 package TurnRPG;
 
+import java.util.Random;
+
 public abstract class Unit {
 	private String name; // 이름
 	private int level; // 레벨
@@ -19,7 +21,7 @@ public abstract class Unit {
 	public int getCri() {
 		return cri;
 	}
-	
+
 	public int getDex() {
 		return dex;
 	}
@@ -146,7 +148,8 @@ public abstract class Unit {
 		protection = null;
 		ring = null;
 	}
-	public Unit(String name, int level, int hp, int att, int def,int dex, int cri, int exp) {
+
+	public Unit(String name, int level, int hp, int att, int def, int dex, int cri, int exp) {
 		super();
 		this.name = name;
 		this.level = level;
@@ -157,19 +160,20 @@ public abstract class Unit {
 		this.dex = dex;
 		this.cri = cri;
 		this.exp = exp;
-		
+
 		party = false;
 		weapon = null;
 		protection = null;
 		ring = null;
 	}
-	
 
 	public void setItem(Item weapon, Item protection, Item ring) {
 		this.weapon = weapon;
 		this.protection = protection;
 		this.ring = ring;
 	}
+
+	// 아이템의 능력치를 확인하는 메소드를 만들어서 처리해야겠다.
 
 // 능력값 출력 메서드
 	public void printStatus() {
@@ -187,9 +191,8 @@ public abstract class Unit {
 		} else {
 			System.out.println(" / " + maxHp + "]");
 		}
-		// 공격력 : 공격 + 무기
 		if (weapon != null) {
-//			System.out.print("[공격력 : " + att + " + " + weapon.getPower() + "]");
+			System.out.print("[공격력 : " + att + " + " + weapon.getAtt() + "]");
 		} else {
 			System.out.print("[공격력 : " + att + "]");
 		}
@@ -226,16 +229,32 @@ public abstract class Unit {
 	}
 
 	public void attack(Monster target) {
-		target.setCurhp(target.getCurhp() - att);
 		System.out.println("-------------------------------------------------");
-		System.out.println("[" + name + "] 가 " + "[" + target.getName() + "] 에게 " + att + "의 데미지를 입힙니다. ");
+		int demage = att;
+
+		if (weapon != null)
+			demage += weapon.getAtt();
+
+		Random random = new Random();
+		int rNum = random.nextInt(100);
+		if (rNum < cri) {
+			System.out.print("치명타!");
+			demage *= 2;
+		}
+
+		target.setCurhp(target.getCurhp() - demage);
+
+		System.out.println("[" + name + "] 가 " + "[" + target.getName() + "] 에게 " + demage + "의 데미지를 입힙니다. ");
+
 		if (target.getCurhp() <= 0) {
 			System.out.println("[" + target.getName() + "] 을 처치했습니다.");
 			target.setCurhp(0);
 		}
+
 	}
 
 	public void printData() {
-		System.out.println("[" + name + "] [" + hp + "/" + maxHp + "] [" + att + "]");
+		System.out.println("[" + name + "] [" + hp + "/" + maxHp + "]" + "[" + att + "]" + "[" + def + "]" + "[" + dex
+				+ "]" + "[" + cri + "]" + "[" + level + "][" + exp + "]");
 	}
 }
