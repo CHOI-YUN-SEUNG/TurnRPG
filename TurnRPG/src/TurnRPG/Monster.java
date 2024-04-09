@@ -65,38 +65,33 @@ public class Monster {
 	}
 
 	public void attack(Player target) {
-		int sample = random.nextInt(100);
-		int test = target.getDex(); 
-		
-		if (sample > test) {
-			int damage = power - target.getDef() ;
-			if(damage<0)
-				damage = 0;
-			target.setHp((target.getHp() - damage));
-			System.out.println("-------------------------------------------------");
-			System.out.println("[" + name + "] 가 " + "[" + target.getName() + "] 에게 " + damage
-					+ "의 데미지를 입힙니다. ");
-			if (target.getHp() <= 0) {
-				System.out.println("[" + target.getName() + "] 을 처치했습니다.");
-				target.setHp(0);
-			}
-		} else
-			System.out.println("[" + name + "] 의 공격을 " + "[" + target.getName() + "] 가 회피했다. ");
+		int skillAtive = random.nextInt(4);
+		if (skillAtive < 1) {
+			skill(target);
+		} else {
+			int sample = random.nextInt(100);
+			int test = target.getDex();
 
+			if (sample > test) {
+				int damage = power - target.getDef();
+				if (damage < 0)
+					damage = 0;
+				target.setHp((target.getHp() - damage));
+				System.out.println("-------------------------------------------------");
+				System.out.println("[" + name + "] 가 " + "[" + target.getName() + "] 에게 " + damage + "의 데미지를 입습니다. ");
+				if (target.getHp() <= 0) {
+					System.out.println("[" + target.getName() + "] 가 쓰러졌습니다.");
+					target.setHp(0);
+				}
+			} else
+				System.out.println("[" + name + "] 의 공격을 " + "[" + target.getName() + "] 가 회피했습니다. ");
+		}
 	}
 
-	public void skill() {// 스킬은 각각의 몹에게 개별 설정 확률로 발동하게 할것
+	public void skill(Player target) {
+		System.out.println("미구현이오");
+	};
 
-	}
-	
-	public void skill(Player target) {// 스킬은 각각의 몹에게 개별 설정 확률로 발동하게 할것
-
-	}
-
-	public void skill(int num, Player target) {// 스킬은 각각의 몹에게 개별 설정 확률로 발동하게 할것
-
-	}
-	
 	public void printData() {
 		System.out.println("[" + name + "] [" + curhp + "/" + maxhp + "] [" + power + "]");
 	}
