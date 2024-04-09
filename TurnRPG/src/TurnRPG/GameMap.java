@@ -8,7 +8,7 @@ public abstract class GameMap {
 	private boolean visitable;
 	private List<String> subMaps;
 	private List<Boolean> subAreasVisited;
-
+	
 	public GameMap(String name, boolean visitable) {
 		this.name = name;
 		this.visitable = visitable;
@@ -72,7 +72,7 @@ public abstract class GameMap {
 		return true;
 	}
 
-	private List<String> generateSubMaps() {
+	public List<String> generateSubMaps() {
 		List<String> subMaps = new ArrayList<>();
 		for (int i = 1; i <= 7; i++) {
 			subMaps.add("세부지역 " + i);
