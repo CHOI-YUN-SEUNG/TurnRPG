@@ -166,7 +166,6 @@ public class Guild {
 			e.printStackTrace();
 		}
 
-		
 		Player.money -= 5000;
 
 	}
@@ -179,17 +178,23 @@ public class Guild {
 		if (guildList.get(sel).isParty()) {
 			System.out.println("파티중인 멤버는 삭제할수 없습니다.");
 		} else {
-			System.out.println("=================================");
-			System.out.print("[이름 : " + guildList.get(sel).getName() + "]");
-			System.out.println("길드원을 삭제합니다.");
-			System.out.println("=================================");
-			guildList.remove(sel);
-		}
+			int check = -1;
+			while (!(check >= 0 && check < 2))
+				check = GameManager.inputNumber("경고. 삭제되는 유닛이 가지고 있는 장비는 함께 사라집니다.(0:뒤로가기, 1: 확인)");
 
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+			if (check == 1) {
+				System.out.println("=================================");
+				System.out.print("[이름 : " + guildList.get(sel).getName() + "]");
+				System.out.println("길드원을 삭제합니다.");
+				System.out.println("=================================");
+				guildList.remove(sel);
+				try {
+					Thread.sleep(1000);
+					System.out.println("길드원이 퇴출 당했습니다.");
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 
@@ -269,6 +274,6 @@ public class Guild {
 
 	public Player getPartyUnit(int num) {
 		return partyList[num];
-	
+
 	}
 }
