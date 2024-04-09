@@ -4,17 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestMap1 extends GameMap {
-	private UnitManager unitManager = UnitManager.instance;
-
+	private String mons[] = { "MonsterTest","TEST2" }; 
 	public TestMap1(String name, boolean visitable) {
 		super(name, visitable);
+		this.setClazzName("TestMap1");
 	}
-
-	@Override
-	public String getName() {
-		return "고블린 부락";
+	
+	public String[] getMons() {
+		return mons;
 	}
-
+	
 	@Override
 	public List<String> generateSubMaps() {
 		List<String> subMaps = new ArrayList<>();
@@ -22,10 +21,5 @@ public class TestMap1 extends GameMap {
 		subMaps.add("테스트 지역 B");
 		subMaps.add("테스트 지역 C");
 		return subMaps;
-	}
-
-	public void spawnMonsters() {
-		unitManager.spawnMonsters(this.getName(), 3); 
-		unitManager.spawnMonsters(this.getName(), 2); 
 	}
 }
