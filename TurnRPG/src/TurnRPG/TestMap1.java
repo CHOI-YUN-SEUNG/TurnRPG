@@ -20,6 +20,8 @@ public class TestMap1 extends GameMap {
 		subMaps.add("테스트 지역 A");
 		subMaps.add("테스트 지역 B");
 		subMaps.add("테스트 지역 C");
+		subMaps.add("테스트 지역 D");
+		subMaps.add("테스트 지역 E);                                                                                                                                                                                                                        ");
 		return subMaps;
 	}
 }

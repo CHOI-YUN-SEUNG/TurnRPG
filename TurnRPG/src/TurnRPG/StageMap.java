@@ -8,7 +8,6 @@ public class StageMap extends Stage {
 	private static GameMap selectedMap;
 	private static String selectedSubmap;
 	
-	
 	static public String getSelectedSubmap() {
 		return selectedSubmap;
 	}
@@ -57,7 +56,6 @@ public class StageMap extends Stage {
 			} else if (selectedSubMapIndex <= selectedMap.getSubMaps().size()) {
 				if (selectedMap.canVisit(selectedSubMapIndex)) {
 					selectedSubmap = selectedMap.getSubMaps().get(selectedSubMapIndex);
-					//selectedMap.visitSubMap(selectedSubMapIndex); 이걸 몬스터를 다 잡고 해줘야할듯하다..
 					System.out.println("탐험 중입니다...");
 					try {
 						Thread.sleep(500);
