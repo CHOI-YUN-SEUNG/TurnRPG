@@ -85,8 +85,8 @@ public class StageBattle extends Stage {
 
 	private void print_character() {
 		System.out.println("======[BATTLE]======");
-		System.out.println("현재 맵: " + StageMap.getSelectedMap().getName() + "/" + StageMap.getSelectedSubmap());
 		System.out.println(playerDead + " : " + monDead);
+		System.out.println("현재 맵: " + StageMap.getSelectedMap().getName() + "/" + StageMap.getSelectedSubmap());
 		System.out.println("======[PLAYER]======");
 		for (int i = 0; i < Player.getPartySize(); i++) {
 			Player.getPartyUnit(i).printData();
