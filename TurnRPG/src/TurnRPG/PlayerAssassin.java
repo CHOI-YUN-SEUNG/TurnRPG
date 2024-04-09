@@ -1,7 +1,11 @@
 package TurnRPG;
 
 public class PlayerAssassin extends Player {
+	private int code = ASSASSIN;
 
+	public int getCode() {
+		return code;
+	}
 	public PlayerAssassin(String name, int level, int maxhp, int att, int def, int dex, int cri, int exp) {
 		super(name, level, maxhp, att, def, dex, cri, exp);
 	}

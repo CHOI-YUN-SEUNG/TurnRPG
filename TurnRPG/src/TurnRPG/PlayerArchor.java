@@ -1,6 +1,11 @@
 package TurnRPG;
 
 public class PlayerArchor extends Player {
+	private int code = ARCHOR;
+	
+	public int getCode() {
+		return code;
+	}
 
 	public PlayerArchor(String name, int level, int maxhp, int att, int def, int dex, int cri, int exp) {
 		super(name, level, maxhp, att, def, dex, cri, exp);

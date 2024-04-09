@@ -4,10 +4,16 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 public class Player extends Unit {
-	static int money;
-	static Guild guild = Guild.instance;
-	static Inventory inventory = Inventory.instance;
-	static Inventory inven = new Inventory();
+	public final int WARRIOR = 1;
+	public final int MAGE = 2;
+	public final int ARCHOR = 3;
+	public final int ASSASSIN = 4;
+	public final int PRIEST = 5;
+	
+	public static int money;
+	public static Guild guild = Guild.instance;
+	public static Inventory inventory = Inventory.instance;
+	public static Inventory inven = new Inventory();
 
 	public void init() {
 		money = 100000; // 소지금
