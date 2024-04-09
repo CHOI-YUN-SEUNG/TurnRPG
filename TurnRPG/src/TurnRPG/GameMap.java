@@ -8,7 +8,7 @@ public abstract class GameMap {
 	private boolean visitable;
 	private List<String> subMaps;
 	private List<Boolean> subAreasVisited;
-	
+	private String clazzName = "";
 	public GameMap(String name, boolean visitable) {
 		this.name = name;
 		this.visitable = visitable;
@@ -19,6 +19,14 @@ public abstract class GameMap {
 		}
 	}
 
+	public String getClazzName() {
+		return clazzName;
+	}
+	
+	public void setClazzName(String clazzName) {
+		this.clazzName = clazzName;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -79,4 +87,6 @@ public abstract class GameMap {
 		}
 		return subMaps;
 	}
+
+	public abstract String[] getMons();
 }
