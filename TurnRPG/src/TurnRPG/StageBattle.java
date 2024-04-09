@@ -19,10 +19,10 @@ public class StageBattle extends Stage {
 		boolean turn = true;
 		int count = 0;
 
-		while (run) {
+		while (run) {	
 			if (turn) {
-				print_character();
 				if (p_index < Player.getPartySize()) {
+					print_character();
 					player_attack(p_index, count);
 					System.out.println(count);
 					p_index += 1;
@@ -59,16 +59,15 @@ public class StageBattle extends Stage {
 			if (monDead <= 0) {
 				p_index = 0;
 				System.out.println("던전 클리어~");
-				int a = StageMap.getSelectedMap().findSubMapIndex(StageMap.getSelectedSubmap());
-				System.out.println(a);
-				StageMap.getSelectedMap().visitSubMap(a);
+				
 				
 				//몹을 다 잡았을 때 던전 방문 정보를 갱신하고...
 				// 다음 맵을 여는 조건을 어떻게하지 .....
 				while (true) {
 					if (p_index < Player.getPartySize()) {
-						int now = Player.getGuildUnit(p_index).getAtt(); // 경험치로 바꿔야함
-						Player.getGuildUnit(p_index).setAtt(now + 1000);
+						int now = Player.getPartyUnit(p_index).getExp(); 
+						Player.getPartyUnit(p_index).setExp(100);
+						Player.getPartyUnit(p_index).checkExp();
 						p_index++;
 					} else
 						break;

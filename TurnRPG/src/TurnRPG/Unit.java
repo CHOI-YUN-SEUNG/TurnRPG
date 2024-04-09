@@ -12,12 +12,12 @@ public abstract class Unit {
 	private int exp; // 경험치
 	private int dex; // 회피
 	private int cri;
-	private int code;
 	private boolean party; // 파티 가입 여부
 	private Item weapon; // 무기
 	private Item protection; // 갑옷
 	private Item ring; // 장신구
 
+	
 	public int getCri() {
 		return cri;
 	}
@@ -253,8 +253,8 @@ public abstract class Unit {
 
 	}
 
-	public void printData() {
-		System.out.println("[" + name + "] [" + hp + "/" + maxHp + "]" + "[" + att + "]" + "[" + def + "]" + "[" + dex
-				+ "]" + "[" + cri + "]" + "[" + level + "][" + exp + "]");
+	public void printData() { // 11은 테스트용
+		System.out.println("[" + name + "][" + hp + "/" + maxHp + "][" + att + "(" + 11 + ")" + "]" + "["
+				+ def + "]" + "[" + dex + "]" + "[" + cri + "]" + "[" + level + "][" + exp + "]");
 	}
 }

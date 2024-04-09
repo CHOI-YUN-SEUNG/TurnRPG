@@ -31,9 +31,9 @@ public class Guild {
 	}
 
 	private Guild() {
-		guildList.add(new PlayerWarrior("전사", 8, 800, 60, 5, 70, 50, 0));
-		guildList.add(new PlayerArchor("아처", 5, 1000, 45, 5, 70, 50, 0));
-		guildList.add(new PlayerPriest("힐러", 3, 500, 70, 5, 70, 50, 0));
+		guildList.add(new PlayerWarrior("전사", 8, 800, 600, 5, 70, 50, 0));
+		guildList.add(new PlayerArchor("아처", 5, 1000, 405, 5, 70, 50, 0));
+		guildList.add(new PlayerPriest("힐러", 3, 500, 700, 5, 70, 50, 0));
 
 		for (int i = 0; i < PARTY_SIZE; i++) {
 			guildList.get(i).setParty(true);

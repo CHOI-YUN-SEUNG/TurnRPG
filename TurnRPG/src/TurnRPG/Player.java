@@ -8,10 +8,19 @@ public class Player extends Unit {
 	static Guild guild = Guild.instance;
 	static Inventory inventory = Inventory.instance;
 	static Inventory inven = new Inventory();
-	
+
 	public void init() {
 		money = 100000; // 소지금
 	}
+
+	public void checkExp() {
+		if(getExp() >= 100) {
+			setLevel(getLevel() + getExp()/100);
+			setExp(getExp() % 100);
+			System.out.println("레벨업");
+		}
+	}
+
 
 	public Player(String name, int level, int maxhp, int att, int def, int exp) {
 		super(name, level, maxhp, att, def, exp);
@@ -20,16 +29,15 @@ public class Player extends Unit {
 	public Player(String name, int level, int maxhp, int att, int def, int exp, boolean party) {
 		super(name, level, maxhp, att, def, exp, false);
 	}
-	
+
 	public Player(String name, int level, int maxhp, int att, int def, int dex, int cri, int exp) {
 		super(name, level, maxhp, att, def, dex, cri, exp);
 	}
-	
-	
+
 	public Player() {
 
 	}
-	
+
 	// 길드 메뉴 메서드
 	public void guildMenu() {
 		guild.guildMenu();
@@ -51,7 +59,7 @@ public class Player extends Unit {
 	static public Player getPartyUnit(int num) {
 		return guild.getPartyUnit(num);
 	}
-	
+
 	// 아이템 리스트 반환 메서드
 	static public ArrayList<Item> getItemList() {
 		return inven.getItemList();
