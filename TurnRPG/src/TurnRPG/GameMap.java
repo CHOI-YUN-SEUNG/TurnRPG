@@ -9,7 +9,7 @@ public abstract class GameMap {
 	private List<String> subMaps;
 	private List<Boolean> subAreasVisited;
 	private String clazzName = "";
-	
+
 	public GameMap(String name, boolean visitable) {
 		this.name = name;
 		this.visitable = visitable;
@@ -23,11 +23,11 @@ public abstract class GameMap {
 	public String getClazzName() {
 		return clazzName;
 	}
-	
+
 	public void setClazzName(String clazzName) {
 		this.clazzName = clazzName;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -66,6 +66,14 @@ public abstract class GameMap {
 		return true;
 	}
 
+	public int findSubMapIndex(String submapName) {
+		for (int i = 0; i < subMaps.size(); i++) {
+			if (submapName.equals(subMaps.get(i)))
+				return i;
+		}
+		return -1;
+	}
+
 	public void visitSubMap(int index) {
 		if (index >= 0 && index < subAreasVisited.size()) {
 			subAreasVisited.set(index, true);
@@ -81,7 +89,7 @@ public abstract class GameMap {
 		return true;
 	}
 
-	public abstract List<String> generateSubMaps(); 
+	public abstract List<String> generateSubMaps();
 
 	public abstract String[] getMons();
 }
