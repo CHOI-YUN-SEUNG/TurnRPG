@@ -5,7 +5,7 @@ import java.util.Vector;
 
 public class StageBattle extends Stage {
 	private UnitManager unitManager = UnitManager.instance;
-	private MapManager mapManager = MapManager.instance;
+
 	private Vector<Monster> monList = null;
 	private Random rNum = new Random();
 	private int monDead = 0;
@@ -76,9 +76,8 @@ public class StageBattle extends Stage {
 
 	@Override
 	public void init() {
-		unitManager.getMon_list().clear(); 
-		unitManager.spawnMonsters("고블린 부락", 4); // 현재 맵의 이름을 전달하여 몬스터 소환
-//		unitManager.spawnMonsters(,4); //현재 방문한 맵의 이름을 받아야와야하는데 어카지
+		unitManager.getMon_list().clear();
+		unitManager.spawnMonsters(StageMap.getSelectedMap().getClazzName(), 4); //이 숫자도 변수로 해서 유동적으로 받을 수 있게 변경하면 되겠다
 		monList = unitManager.getMon_list();
 		monDead = monList.size();
 		playerDead = Player.getPartySize();
@@ -86,7 +85,7 @@ public class StageBattle extends Stage {
 
 	private void print_character() {
 		System.out.println("======[BATTLE]======");
-	//	System.out.println("현재 맵: " + MapManager.getCurrentMap().getName());
+		System.out.println("현재 맵: " + StageMap.getSelectedMap().getName() + "/" + StageMap.getSelectedSubmap());
 		System.out.println(playerDead + " : " + monDead);
 		System.out.println("======[PLAYER]======");
 		for (int i = 0; i < Player.getPartySize(); i++) {
