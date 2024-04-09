@@ -5,10 +5,17 @@ import java.util.List;
 
 public class StageMap extends Stage {
 	private List<GameMap> availableMaps;
-
+	private static GameMap selectedMap;
+	private static String selectedSubmap;
 	
-
 	
+	static public String getSelectedSubmap() {
+		return selectedSubmap;
+	}
+	
+	static public GameMap getSelectedMap() {
+		return selectedMap;
+	}
 	
 	@Override
 	public boolean update() {
@@ -29,7 +36,7 @@ public class StageMap extends Stage {
 				GameManager.nextStage = "LOBBY";
 				return;
 			} else {
-				GameMap selectedMap = availableMaps.get(selectedMapIndex);
+				selectedMap = availableMaps.get(selectedMapIndex);
 				if (selectedMap.isVisitable()) {
 					System.out.println("선택한 던전은 " + selectedMap.getName() + "입니다.");
 					exploreSubMaps(selectedMap);
@@ -49,11 +56,10 @@ public class StageMap extends Stage {
 				return;
 			} else if (selectedSubMapIndex <= selectedMap.getSubMaps().size()) {
 				if (selectedMap.canVisit(selectedSubMapIndex)) {
-					selectedMap.visitSubMap(selectedSubMapIndex);
+					selectedSubmap = selectedMap.getSubMaps().get(selectedSubMapIndex);
+					//selectedMap.visitSubMap(selectedSubMapIndex); 이걸 몬스터를 다 잡고 해줘야할듯하다..
 					System.out.println("탐험 중입니다...");
 					try {
-						Thread.sleep(500);
-						System.out.println("탐험 중입니다...");
 						Thread.sleep(500);
 						System.out.println("적을 만났습니다!");
 					} catch (InterruptedException e) {
@@ -83,10 +89,9 @@ public class StageMap extends Stage {
 		}
 	}
 
-	private List<GameMap> generateAvailableMaps() {//맵 클리어 체크 메소드 추가필요, 앞뒤 예외 처리 해두고 이전 지역 서브맵 클리어 확인 필요 
+	private List<GameMap> generateAvailableMaps() {
 		List<GameMap> availableMaps = new ArrayList<>();
 		availableMaps.add(new TestMap1("테스트1", true));
-		availableMaps.add(new TestMap1("테스트2", false));
 		return availableMaps;
 	}
 }
