@@ -15,4 +15,4 @@ public class PlayerPriest extends Player {
 	public void skill(Monster target) {
 		System.out.println("프리스트 스킬은 구현중이다");
 	}
-}
+} 
